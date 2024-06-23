@@ -3,7 +3,7 @@ using Domain.Entities.JsonRequest;
 using Domain.Primitives;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 
-namespace Persistence;
+namespace Persistence.Repositories;
 
 public class PublishDomainEventsToEventBusInterceptor :
     SaveChangesInterceptor

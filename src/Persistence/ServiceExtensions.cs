@@ -1,9 +1,11 @@
 ﻿using Application.Abstractions;
 using Application.EventConsumers;
+using Domain.Abstractions;
 using MassTransit;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Persistence.MessageBroker;
+using Persistence.Repositories;
 using Persistence.Webhook;
 using Polly;
 using Polly.Extensions.Http;
@@ -20,6 +22,11 @@ public static class ServiceExtensions
         services.AddTransient<IWebhookSender, WebhookSender>();
 
         AddHttpAndPolly(services, config);
+
+        // It is scoped service
+        services.AddDbContext<RetranslatorDbContext>();
+        services.AddScoped<IUnitOfWork, RetranslatorDbContext>();
+        services.AddScoped<IJsonRequestRepository, JsonRequestRepository>();
 
         services
             .AddOptions<RabbitSettings>()
@@ -39,6 +46,12 @@ public static class ServiceExtensions
 
                 return true;
             })
+            .ValidateDataAnnotations()
+            .ValidateOnStart();
+
+        services
+            .AddOptions<PostgreSettings>()
+            .BindConfiguration(PostgreSettings.SectionName)
             .ValidateDataAnnotations()
             .ValidateOnStart();
 
