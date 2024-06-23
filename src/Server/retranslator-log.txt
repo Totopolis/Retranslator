@@ -26,3 +26,1212 @@
 2024-06-23 23:10:37.228 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/favicon-32x32.png - null null
 2024-06-23 23:10:37.236 +03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
 2024-06-23 23:10:37.242 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/favicon-32x32.png - 200 628 image/png 12.7275ms
+2024-06-23 23:30:40.506 +03:00 [INF] Bus started: "loopback://localhost/"
+2024-06-23 23:30:40.527 +03:00 [INF] EmulatorHostedService started
+2024-06-23 23:30:40.565 +03:00 [ERR] Hosting failed to start
+System.ArgumentException: Messages types must not be in the System namespace: System.String (Parameter 'T')
+   at MassTransit.Topology.PublishTopology.GetMessageTopology[T]() in /_/src/MassTransit.Abstractions/Topology/Topology/PublishTopology.cs:line 122
+   at MassTransit.Topology.PublishTopology.MassTransit.IPublishTopology.GetMessageTopology[T]() in /_/src/MassTransit.Abstractions/Topology/Topology/PublishTopology.cs:line 39
+   at MassTransit.Transports.PublishEndpointProvider.CreateSendEndpoint[T]()
+   at MassTransit.Transports.PublishEndpointProvider.<GetPublishSendEndpoint>b__8_0[T](Type type) in /_/src/MassTransit/Transports/PublishEndpointProvider.cs:line 36
+   at MassTransit.Transports.SendEndpointCache`1.GetSendEndpointFromFactory(TKey address, SendEndpointFactory`1 factory) in /_/src/MassTransit/Transports/SendEndpointCache.cs:line 32
+   at MassTransit.Internals.Caching.PendingValue`2.<>c__DisplayClass6_0.<<CreateValue>g__CreateValueAsync|0>d.MoveNext() in /_/src/MassTransit/Internals/Caching/PendingValue.cs:line 41
+--- End of stack trace from previous location ---
+   at MassTransit.Internals.Caching.MassTransitCache`3.<>c__DisplayClass12_0.<<GetOrAdd>g__Added|2>d.MoveNext() in /_/src/MassTransit/Internals/Caching/MassTransitCache.cs:line 74
+--- End of stack trace from previous location ---
+   at MassTransit.Transports.SendEndpointCache`1.GetSendEndpoint(TKey key, SendEndpointFactory`1 factory) in /_/src/MassTransit/Transports/SendEndpointCache.cs:line 25
+   at MassTransit.DependencyInjection.ScopedPublishEndpointProvider.MassTransit.IPublishEndpointProvider.GetPublishSendEndpoint[T]() in /_/src/MassTransit/DependencyInjection/DependencyInjection/ScopedPublishEndpointProvider.cs:line 27
+   at MassTransit.Transports.PublishEndpoint.<>c__DisplayClass17_0`1.<<PublishInternal>g__PublishAsync|0>d.MoveNext() in /_/src/MassTransit.Abstractions/Transports/PublishEndpoint.cs:line 123
+--- End of stack trace from previous location ---
+   at Server.EmulatorHostedService.ExecuteAsync(CancellationToken stoppingToken) in D:\Data\Github\Retranslator\src\Server\EmulatorHostedService.cs:line 30
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2024-06-23 23:30:40.810 +03:00 [INF] Bus stopped: "loopback://localhost/"
+2024-06-23 23:31:19.901 +03:00 [INF] Bus started: "loopback://localhost/"
+2024-06-23 23:31:19.920 +03:00 [INF] EmulatorHostedService started
+2024-06-23 23:31:54.304 +03:00 [ERR] Hosting failed to start
+System.ArgumentException: Messages types must not be in the System namespace: System.String (Parameter 'T')
+   at MassTransit.Topology.PublishTopology.GetMessageTopology[T]() in /_/src/MassTransit.Abstractions/Topology/Topology/PublishTopology.cs:line 122
+   at MassTransit.Topology.PublishTopology.MassTransit.IPublishTopology.GetMessageTopology[T]() in /_/src/MassTransit.Abstractions/Topology/Topology/PublishTopology.cs:line 39
+   at MassTransit.Transports.PublishEndpointProvider.CreateSendEndpoint[T]()
+   at MassTransit.Transports.PublishEndpointProvider.<GetPublishSendEndpoint>b__8_0[T](Type type) in /_/src/MassTransit/Transports/PublishEndpointProvider.cs:line 36
+   at MassTransit.Transports.SendEndpointCache`1.GetSendEndpointFromFactory(TKey address, SendEndpointFactory`1 factory) in /_/src/MassTransit/Transports/SendEndpointCache.cs:line 32
+   at MassTransit.Internals.Caching.PendingValue`2.<>c__DisplayClass6_0.<<CreateValue>g__CreateValueAsync|0>d.MoveNext() in /_/src/MassTransit/Internals/Caching/PendingValue.cs:line 41
+--- End of stack trace from previous location ---
+   at MassTransit.Internals.Caching.MassTransitCache`3.<>c__DisplayClass12_0.<<GetOrAdd>g__Added|2>d.MoveNext() in /_/src/MassTransit/Internals/Caching/MassTransitCache.cs:line 74
+--- End of stack trace from previous location ---
+   at MassTransit.Transports.SendEndpointCache`1.GetSendEndpoint(TKey key, SendEndpointFactory`1 factory) in /_/src/MassTransit/Transports/SendEndpointCache.cs:line 25
+   at MassTransit.DependencyInjection.ScopedPublishEndpointProvider.MassTransit.IPublishEndpointProvider.GetPublishSendEndpoint[T]() in /_/src/MassTransit/DependencyInjection/DependencyInjection/ScopedPublishEndpointProvider.cs:line 27
+   at MassTransit.Transports.PublishEndpoint.<>c__DisplayClass17_0`1.<<PublishInternal>g__PublishAsync|0>d.MoveNext() in /_/src/MassTransit.Abstractions/Transports/PublishEndpoint.cs:line 123
+--- End of stack trace from previous location ---
+   at Server.EmulatorHostedService.ExecuteAsync(CancellationToken stoppingToken) in D:\Data\Github\Retranslator\src\Server\EmulatorHostedService.cs:line 30
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2024-06-23 23:31:54.548 +03:00 [INF] Bus stopped: "loopback://localhost/"
+2024-06-23 23:32:27.570 +03:00 [INF] Bus started: "loopback://localhost/"
+2024-06-23 23:32:27.590 +03:00 [INF] EmulatorHostedService started
+2024-06-23 23:32:28.916 +03:00 [INF] Single json request generated
+2024-06-23 23:32:29.176 +03:00 [INF] Now listening on: http://localhost:5181
+2024-06-23 23:32:29.178 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-23 23:32:29.180 +03:00 [INF] Hosting environment: Development
+2024-06-23 23:32:29.181 +03:00 [INF] Content root path: D:\Data\Github\Retranslator\src\Server
+2024-06-23 23:32:29.693 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/index.html - null null
+2024-06-23 23:32:29.849 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/index.html - 200 null text/html;charset=utf-8 159.2216ms
+2024-06-23 23:32:29.861 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - null null
+2024-06-23 23:32:29.870 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 8.8732ms
+2024-06-23 23:32:29.881 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_vs/browserLink - null null
+2024-06-23 23:32:29.929 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_vs/browserLink - 200 null text/javascript; charset=UTF-8 47.8953ms
+2024-06-23 23:32:30.203 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - null null
+2024-06-23 23:32:30.217 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-06-23 23:32:30.234 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 31.2778ms
+2024-06-23 23:37:04.197 +03:00 [INF] EmulatorHostedService started
+2024-06-23 23:37:04.197 +03:00 [INF] Bus started: "loopback://localhost/"
+2024-06-23 23:37:07.256 +03:00 [ERR] Hosting failed to start
+System.ArgumentException: Messages types must not be in the System namespace: System.String (Parameter 'T')
+   at MassTransit.Topology.PublishTopology.GetMessageTopology[T]() in /_/src/MassTransit.Abstractions/Topology/Topology/PublishTopology.cs:line 122
+   at MassTransit.Topology.PublishTopology.MassTransit.IPublishTopology.GetMessageTopology[T]() in /_/src/MassTransit.Abstractions/Topology/Topology/PublishTopology.cs:line 39
+   at MassTransit.Transports.PublishEndpointProvider.CreateSendEndpoint[T]()
+   at MassTransit.Transports.PublishEndpointProvider.<GetPublishSendEndpoint>b__8_0[T](Type type) in /_/src/MassTransit/Transports/PublishEndpointProvider.cs:line 36
+   at MassTransit.Transports.SendEndpointCache`1.GetSendEndpointFromFactory(TKey address, SendEndpointFactory`1 factory) in /_/src/MassTransit/Transports/SendEndpointCache.cs:line 32
+   at MassTransit.Internals.Caching.PendingValue`2.<>c__DisplayClass6_0.<<CreateValue>g__CreateValueAsync|0>d.MoveNext() in /_/src/MassTransit/Internals/Caching/PendingValue.cs:line 41
+--- End of stack trace from previous location ---
+   at MassTransit.Internals.Caching.MassTransitCache`3.<>c__DisplayClass12_0.<<GetOrAdd>g__Added|2>d.MoveNext() in /_/src/MassTransit/Internals/Caching/MassTransitCache.cs:line 74
+--- End of stack trace from previous location ---
+   at MassTransit.Transports.SendEndpointCache`1.GetSendEndpoint(TKey key, SendEndpointFactory`1 factory) in /_/src/MassTransit/Transports/SendEndpointCache.cs:line 25
+   at MassTransit.DependencyInjection.ScopedPublishEndpointProvider.MassTransit.IPublishEndpointProvider.GetPublishSendEndpoint[T]() in /_/src/MassTransit/DependencyInjection/DependencyInjection/ScopedPublishEndpointProvider.cs:line 27
+   at MassTransit.Transports.PublishEndpoint.<>c__DisplayClass17_0`1.<<PublishInternal>g__PublishAsync|0>d.MoveNext() in /_/src/MassTransit.Abstractions/Transports/PublishEndpoint.cs:line 123
+--- End of stack trace from previous location ---
+   at Server.EmulatorHostedService.ExecuteAsync(CancellationToken stoppingToken) in D:\Data\Github\Retranslator\src\Server\EmulatorHostedService.cs:line 30
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2024-06-23 23:37:07.794 +03:00 [INF] Bus stopped: "loopback://localhost/"
+2024-06-23 23:44:38.302 +03:00 [INF] EmulatorHostedService started
+2024-06-23 23:44:38.302 +03:00 [INF] Bus started: "loopback://localhost/"
+2024-06-23 23:45:17.397 +03:00 [INF] Bus started: "loopback://localhost/"
+2024-06-23 23:45:17.418 +03:00 [INF] EmulatorHostedService started
+2024-06-23 23:45:29.475 +03:00 [ERR] Hosting failed to start
+System.ArgumentException: A convention for the message type System.String was not found
+   at MassTransit.EndpointConventionExtensions.Send[T](ISendEndpointProvider provider, T message, CancellationToken cancellationToken) in /_/src/MassTransit/EndpointConventionExtensions.cs:line 23
+   at Persistence.MessageBroker.EventBus.PublishStringAsync(String message, CancellationToken ct) in D:\Data\Github\Retranslator\src\Persistence\MessageBroker\EventBus.cs:line 27
+   at Server.EmulatorHostedService.ExecuteAsync(CancellationToken stoppingToken) in D:\Data\Github\Retranslator\src\Server\EmulatorHostedService.cs:line 30
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2024-06-23 23:45:29.654 +03:00 [INF] Bus stopped: "loopback://localhost/"
+2024-06-23 23:51:37.620 +03:00 [INF] Bus started: "loopback://localhost/"
+2024-06-23 23:51:37.643 +03:00 [INF] EmulatorHostedService started
+2024-06-23 23:51:43.851 +03:00 [INF] Single json request generated
+2024-06-23 23:51:45.433 +03:00 [INF] Now listening on: http://localhost:5181
+2024-06-23 23:51:45.436 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-23 23:51:45.437 +03:00 [INF] Hosting environment: Development
+2024-06-23 23:51:45.439 +03:00 [INF] Content root path: D:\Data\Github\Retranslator\src\Server
+2024-06-23 23:51:46.382 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/index.html - null null
+2024-06-23 23:51:46.980 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/index.html - 200 null text/html;charset=utf-8 617.373ms
+2024-06-23 23:51:47.021 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_vs/browserLink - null null
+2024-06-23 23:51:47.021 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - null null
+2024-06-23 23:51:47.039 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 18.4066ms
+2024-06-23 23:51:47.091 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_vs/browserLink - 200 null text/javascript; charset=UTF-8 70.662ms
+2024-06-23 23:51:47.343 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - null null
+2024-06-23 23:51:47.373 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-06-23 23:51:47.393 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 49.3869ms
+2024-06-23 23:52:36.681 +03:00 [INF] Bus started: "loopback://localhost/"
+2024-06-23 23:52:36.701 +03:00 [INF] EmulatorHostedService started
+2024-06-23 23:52:36.777 +03:00 [INF] Single json request generated
+2024-06-23 23:52:46.411 +03:00 [INF] Now listening on: http://localhost:5181
+2024-06-23 23:52:46.414 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-23 23:52:46.415 +03:00 [INF] Hosting environment: Development
+2024-06-23 23:52:46.416 +03:00 [INF] Content root path: D:\Data\Github\Retranslator\src\Server
+2024-06-23 23:52:46.900 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/index.html - null null
+2024-06-23 23:52:47.048 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/index.html - 200 null text/html;charset=utf-8 151.8829ms
+2024-06-23 23:52:47.079 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - null null
+2024-06-23 23:52:47.079 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_vs/browserLink - null null
+2024-06-23 23:52:47.085 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 5.8378ms
+2024-06-23 23:52:47.126 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_vs/browserLink - 200 null text/javascript; charset=UTF-8 46.7428ms
+2024-06-23 23:52:47.314 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - null null
+2024-06-23 23:52:47.326 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-06-23 23:52:47.340 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 26.1049ms
+2024-06-23 23:56:10.945 +03:00 [INF] Configured endpoint external-json-event, Consumer: Application.EventConsumers.ExternalJsonEventConsumer
+2024-06-23 23:56:10.967 +03:00 [INF] Configured endpoint received-domain-event, Consumer: Application.EventConsumers.ReceivedDomainEventConsumer
+2024-06-23 23:56:11.148 +03:00 [INF] Bus started: "loopback://localhost/"
+2024-06-23 23:56:11.152 +03:00 [INF] EmulatorHostedService started
+2024-06-23 23:56:11.245 +03:00 [INF] Single json request generated
+2024-06-23 23:56:14.932 +03:00 [INF] Now listening on: http://localhost:5181
+2024-06-23 23:56:14.935 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-23 23:56:14.936 +03:00 [INF] Hosting environment: Development
+2024-06-23 23:56:14.938 +03:00 [INF] Content root path: D:\Data\Github\Retranslator\src\Server
+2024-06-23 23:56:15.552 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/index.html - null null
+2024-06-23 23:56:15.695 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/index.html - 200 null text/html;charset=utf-8 147.6084ms
+2024-06-23 23:56:15.704 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - null null
+2024-06-23 23:56:15.709 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 5.6933ms
+2024-06-23 23:56:15.717 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_vs/browserLink - null null
+2024-06-23 23:56:15.748 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_vs/browserLink - 200 null text/javascript; charset=UTF-8 30.6896ms
+2024-06-23 23:56:15.815 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - null null
+2024-06-23 23:56:15.827 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-06-23 23:56:15.839 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 24.0815ms
+2024-06-23 23:56:21.435 +03:00 [INF] Received batch of json requests (size=1)
+2024-06-23 23:58:46.657 +03:00 [INF] Configured endpoint external-json-event, Consumer: Application.EventConsumers.ExternalJsonEventConsumer
+2024-06-23 23:58:46.680 +03:00 [INF] Configured endpoint received-domain-event, Consumer: Application.EventConsumers.ReceivedDomainEventConsumer
+2024-06-23 23:58:46.862 +03:00 [INF] Bus started: "loopback://localhost/"
+2024-06-23 23:58:46.865 +03:00 [INF] EmulatorHostedService started
+2024-06-23 23:58:46.936 +03:00 [INF] Single json request generated
+2024-06-23 23:58:48.176 +03:00 [INF] Now listening on: http://localhost:5181
+2024-06-23 23:58:48.180 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-23 23:58:48.181 +03:00 [INF] Hosting environment: Development
+2024-06-23 23:58:48.182 +03:00 [INF] Content root path: D:\Data\Github\Retranslator\src\Server
+2024-06-23 23:58:48.495 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/index.html - null null
+2024-06-23 23:58:48.679 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/index.html - 200 null text/html;charset=utf-8 188.4906ms
+2024-06-23 23:58:48.697 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - null null
+2024-06-23 23:58:48.706 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_vs/browserLink - null null
+2024-06-23 23:58:48.706 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 9.3266ms
+2024-06-23 23:58:48.754 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_vs/browserLink - 200 null text/javascript; charset=UTF-8 48.4585ms
+2024-06-23 23:58:48.828 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - null null
+2024-06-23 23:58:48.839 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-06-23 23:58:48.854 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 26.1928ms
+2024-06-23 23:58:52.069 +03:00 [INF] Received batch of json requests (size=1)
+2024-06-23 23:59:00.289 +03:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-06-24 00:14:30.880 +03:00 [INF] Configured endpoint external-json-event, Consumer: Application.EventConsumers.ExternalJsonEventConsumer
+2024-06-24 00:14:30.902 +03:00 [INF] Configured endpoint received-domain-event, Consumer: Application.EventConsumers.ReceivedDomainEventConsumer
+2024-06-24 00:14:54.339 +03:00 [INF] Configured endpoint external-json-event, Consumer: Application.EventConsumers.ExternalJsonEventConsumer
+2024-06-24 00:14:54.361 +03:00 [INF] Configured endpoint received-domain-event, Consumer: Application.EventConsumers.ReceivedDomainEventConsumer
+2024-06-24 00:14:54.538 +03:00 [INF] EmulatorHostedService started
+2024-06-24 00:14:54.538 +03:00 [INF] Bus started: "loopback://localhost/"
+2024-06-24 00:14:54.610 +03:00 [INF] Single json request generated
+2024-06-24 00:14:56.595 +03:00 [INF] Now listening on: http://localhost:5181
+2024-06-24 00:14:56.598 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-24 00:14:56.599 +03:00 [INF] Hosting environment: Development
+2024-06-24 00:14:56.600 +03:00 [INF] Content root path: D:\Data\Github\Retranslator\src\Server
+2024-06-24 00:14:56.974 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/index.html - null null
+2024-06-24 00:14:57.191 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/index.html - 200 null text/html;charset=utf-8 220.2926ms
+2024-06-24 00:14:57.206 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - null null
+2024-06-24 00:14:57.217 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 11.5679ms
+2024-06-24 00:14:57.227 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_vs/browserLink - null null
+2024-06-24 00:14:57.307 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_vs/browserLink - 200 null text/javascript; charset=UTF-8 80.9304ms
+2024-06-24 00:14:57.424 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - null null
+2024-06-24 00:14:57.451 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-06-24 00:14:57.485 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 63.4818ms
+2024-06-24 00:15:00.228 +03:00 [INF] Received batch of json requests (size=1)
+2024-06-24 00:15:00.879 +03:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-06-24 00:15:50.073 +03:00 [INF] Configured endpoint external-json-event, Consumer: Application.EventConsumers.ExternalJsonEventConsumer
+2024-06-24 00:15:50.094 +03:00 [INF] Configured endpoint received-domain-event, Consumer: Application.EventConsumers.ReceivedDomainEventConsumer
+2024-06-24 00:15:50.256 +03:00 [INF] Bus started: "loopback://localhost/"
+2024-06-24 00:15:50.259 +03:00 [INF] EmulatorHostedService started
+2024-06-24 00:15:50.330 +03:00 [INF] Single json request generated
+2024-06-24 00:15:56.439 +03:00 [INF] Now listening on: http://localhost:5181
+2024-06-24 00:15:56.443 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-24 00:15:56.446 +03:00 [INF] Hosting environment: Development
+2024-06-24 00:15:56.448 +03:00 [INF] Content root path: D:\Data\Github\Retranslator\src\Server
+2024-06-24 00:15:56.857 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/index.html - null null
+2024-06-24 00:15:57.021 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/index.html - 200 null text/html;charset=utf-8 170.9605ms
+2024-06-24 00:15:57.047 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - null null
+2024-06-24 00:15:57.047 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_vs/browserLink - null null
+2024-06-24 00:15:57.053 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 6.3021ms
+2024-06-24 00:15:57.086 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_vs/browserLink - 200 null text/javascript; charset=UTF-8 39.173ms
+2024-06-24 00:15:57.135 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - null null
+2024-06-24 00:15:57.148 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-06-24 00:15:57.162 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 26.9823ms
+2024-06-24 00:15:59.065 +03:00 [INF] Received batch of json requests (size=1)
+2024-06-24 00:15:59.872 +03:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-06-24 00:17:31.002 +03:00 [INF] Configured endpoint external-json-event, Consumer: Application.EventConsumers.ExternalJsonEventConsumer
+2024-06-24 00:17:31.024 +03:00 [INF] Configured endpoint received-domain-event, Consumer: Application.EventConsumers.ReceivedDomainEventConsumer
+2024-06-24 00:17:31.199 +03:00 [INF] Bus started: "loopback://localhost/"
+2024-06-24 00:17:31.204 +03:00 [INF] EmulatorHostedService started
+2024-06-24 00:17:31.287 +03:00 [INF] Single json request generated
+2024-06-24 00:17:32.864 +03:00 [INF] Now listening on: http://localhost:5181
+2024-06-24 00:17:32.868 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-24 00:17:32.870 +03:00 [INF] Hosting environment: Development
+2024-06-24 00:17:32.871 +03:00 [INF] Content root path: D:\Data\Github\Retranslator\src\Server
+2024-06-24 00:17:33.531 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/index.html - null null
+2024-06-24 00:17:33.678 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/index.html - 200 null text/html;charset=utf-8 150.9757ms
+2024-06-24 00:17:33.685 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - null null
+2024-06-24 00:17:33.691 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 6.9038ms
+2024-06-24 00:17:33.698 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_vs/browserLink - null null
+2024-06-24 00:17:33.729 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_vs/browserLink - 200 null text/javascript; charset=UTF-8 31.1695ms
+2024-06-24 00:17:33.790 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - null null
+2024-06-24 00:17:33.807 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-06-24 00:17:33.819 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 29.3562ms
+2024-06-24 00:17:34.335 +03:00 [INF] Received batch of json requests (size=1)
+2024-06-24 00:17:44.527 +03:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-06-24 00:18:32.767 +03:00 [INF] Configured endpoint external-json-event, Consumer: Application.EventConsumers.ExternalJsonEventConsumer
+2024-06-24 00:18:32.795 +03:00 [INF] Configured endpoint received-domain-event, Consumer: Application.EventConsumers.ReceivedDomainEventConsumer
+2024-06-24 00:18:33.003 +03:00 [INF] Bus started: "loopback://localhost/"
+2024-06-24 00:18:33.007 +03:00 [INF] EmulatorHostedService started
+2024-06-24 00:18:33.087 +03:00 [INF] Single json request generated
+2024-06-24 00:18:35.862 +03:00 [INF] Now listening on: http://localhost:5181
+2024-06-24 00:18:35.865 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-24 00:18:35.867 +03:00 [INF] Hosting environment: Development
+2024-06-24 00:18:35.869 +03:00 [INF] Content root path: D:\Data\Github\Retranslator\src\Server
+2024-06-24 00:18:36.476 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/index.html - null null
+2024-06-24 00:18:36.665 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/index.html - 200 null text/html;charset=utf-8 191.6382ms
+2024-06-24 00:18:36.672 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - null null
+2024-06-24 00:18:36.679 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 6.5547ms
+2024-06-24 00:18:36.684 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_vs/browserLink - null null
+2024-06-24 00:18:36.719 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_vs/browserLink - 200 null text/javascript; charset=UTF-8 35.6486ms
+2024-06-24 00:18:36.775 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - null null
+2024-06-24 00:18:36.799 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-06-24 00:18:36.810 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 34.9704ms
+2024-06-24 00:18:38.223 +03:00 [INF] Received batch of json requests (size=1)
+2024-06-24 00:18:38.778 +03:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-06-24 00:19:16.895 +03:00 [INF] Configured endpoint external-json-event, Consumer: Application.EventConsumers.ExternalJsonEventConsumer
+2024-06-24 00:19:16.917 +03:00 [INF] Configured endpoint received-domain-event, Consumer: Application.EventConsumers.ReceivedDomainEventConsumer
+2024-06-24 00:19:17.097 +03:00 [INF] Bus started: "loopback://localhost/"
+2024-06-24 00:19:17.100 +03:00 [INF] EmulatorHostedService started
+2024-06-24 00:19:17.172 +03:00 [INF] Single json request generated
+2024-06-24 00:19:19.326 +03:00 [INF] Now listening on: http://localhost:5181
+2024-06-24 00:19:19.329 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-24 00:19:19.330 +03:00 [INF] Hosting environment: Development
+2024-06-24 00:19:19.332 +03:00 [INF] Content root path: D:\Data\Github\Retranslator\src\Server
+2024-06-24 00:19:19.860 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/index.html - null null
+2024-06-24 00:19:19.998 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/index.html - 200 null text/html;charset=utf-8 140.9205ms
+2024-06-24 00:19:20.023 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - null null
+2024-06-24 00:19:20.024 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_vs/browserLink - null null
+2024-06-24 00:19:20.030 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 7.5224ms
+2024-06-24 00:19:20.062 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_vs/browserLink - 200 null text/javascript; charset=UTF-8 38.1549ms
+2024-06-24 00:19:20.111 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - null null
+2024-06-24 00:19:20.122 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-06-24 00:19:20.136 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 25.9258ms
+2024-06-24 00:19:20.970 +03:00 [INF] Received batch of json requests (size=1)
+2024-06-24 00:19:21.362 +03:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-06-24 00:22:11.508 +03:00 [INF] Configured endpoint external-json-event, Consumer: Application.EventConsumers.ExternalJsonEventConsumer
+2024-06-24 00:22:11.530 +03:00 [INF] Configured endpoint received-domain-event, Consumer: Application.EventConsumers.ReceivedDomainEventConsumer
+2024-06-24 00:22:11.759 +03:00 [INF] Bus started: "loopback://localhost/"
+2024-06-24 00:22:11.762 +03:00 [INF] EmulatorHostedService started
+2024-06-24 00:22:11.837 +03:00 [INF] Single json request generated
+2024-06-24 00:22:12.675 +03:00 [INF] Now listening on: http://localhost:5181
+2024-06-24 00:22:12.677 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-24 00:22:12.679 +03:00 [INF] Hosting environment: Development
+2024-06-24 00:22:12.681 +03:00 [INF] Content root path: D:\Data\Github\Retranslator\src\Server
+2024-06-24 00:22:13.434 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/index.html - null null
+2024-06-24 00:22:13.654 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/index.html - 200 null text/html;charset=utf-8 220.9651ms
+2024-06-24 00:22:13.667 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - null null
+2024-06-24 00:22:13.677 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 9.4314ms
+2024-06-24 00:22:13.700 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_vs/browserLink - null null
+2024-06-24 00:22:20.858 +03:00 [INF] Received batch of json requests (size=1)
+2024-06-24 00:22:20.955 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_vs/browserLink - 200 null text/javascript; charset=UTF-8 7254.3675ms
+2024-06-24 00:22:21.079 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - null null
+2024-06-24 00:22:21.114 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-06-24 00:22:21.167 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 88.8541ms
+2024-06-24 00:22:21.749 +03:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-06-24 00:23:24.686 +03:00 [INF] Configured endpoint external-json-event, Consumer: Application.EventConsumers.ExternalJsonEventConsumer
+2024-06-24 00:23:24.707 +03:00 [INF] Configured endpoint received-domain-event, Consumer: Application.EventConsumers.ReceivedDomainEventConsumer
+2024-06-24 00:23:24.914 +03:00 [INF] EmulatorHostedService started
+2024-06-24 00:23:24.915 +03:00 [INF] Bus started: "loopback://localhost/"
+2024-06-24 00:23:25.003 +03:00 [INF] Single json request generated
+2024-06-24 00:23:26.692 +03:00 [INF] Now listening on: http://localhost:5181
+2024-06-24 00:23:26.696 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-24 00:23:26.697 +03:00 [INF] Hosting environment: Development
+2024-06-24 00:23:26.699 +03:00 [INF] Content root path: D:\Data\Github\Retranslator\src\Server
+2024-06-24 00:23:27.331 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/index.html - null null
+2024-06-24 00:23:27.469 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/index.html - 200 null text/html;charset=utf-8 141.5401ms
+2024-06-24 00:23:27.496 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_vs/browserLink - null null
+2024-06-24 00:23:27.496 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - null null
+2024-06-24 00:23:27.513 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 18.0334ms
+2024-06-24 00:23:27.533 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_vs/browserLink - 200 null text/javascript; charset=UTF-8 37.1667ms
+2024-06-24 00:23:27.583 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - null null
+2024-06-24 00:23:27.596 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-06-24 00:23:27.608 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 25.1255ms
+2024-06-24 00:23:49.204 +03:00 [INF] Received batch of json requests (size=1)
+2024-06-24 00:23:49.980 +03:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-06-24 00:26:27.869 +03:00 [INF] Configured endpoint external-json-event, Consumer: Application.EventConsumers.ExternalJsonEventConsumer
+2024-06-24 00:26:27.892 +03:00 [INF] Configured endpoint received-domain-event, Consumer: Application.EventConsumers.ReceivedDomainEventConsumer
+2024-06-24 00:26:28.142 +03:00 [INF] Bus started: "loopback://localhost/"
+2024-06-24 00:26:28.146 +03:00 [INF] EmulatorHostedService started
+2024-06-24 00:26:28.244 +03:00 [INF] Single json request generated
+2024-06-24 00:26:31.046 +03:00 [INF] Now listening on: http://localhost:5181
+2024-06-24 00:26:31.048 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-24 00:26:31.049 +03:00 [INF] Hosting environment: Development
+2024-06-24 00:26:31.051 +03:00 [INF] Content root path: D:\Data\Github\Retranslator\src\Server
+2024-06-24 00:26:31.660 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/index.html - null null
+2024-06-24 00:26:31.804 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/index.html - 200 null text/html;charset=utf-8 148.166ms
+2024-06-24 00:26:31.833 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - null null
+2024-06-24 00:26:31.837 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_vs/browserLink - null null
+2024-06-24 00:26:31.844 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 10.5494ms
+2024-06-24 00:26:31.885 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_vs/browserLink - 200 null text/javascript; charset=UTF-8 48.9317ms
+2024-06-24 00:26:31.936 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - null null
+2024-06-24 00:26:31.952 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-06-24 00:26:31.977 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 41.0277ms
+2024-06-24 00:26:40.177 +03:00 [INF] Received batch of json requests (size=1)
+2024-06-24 00:26:40.477 +03:00 [ERR] R-FAULT "loopback://localhost/external-json-event" "7c350000-0492-0892-4341-08dc93cb249e" Application.ExternalRequestContract MassTransit.Batching.BatchConsumer<Application.ExternalRequestContract>("00:00:09.3553471")
+System.InvalidOperationException: No database provider has been configured for this DbContext. A provider can be configured by overriding the 'DbContext.OnConfiguring' method or by using 'AddDbContext' on the application service provider. If 'AddDbContext' is used, then also ensure that your DbContext type accepts a DbContextOptions<TContext> object in its constructor and passes it to the base constructor for DbContext.
+   at Microsoft.EntityFrameworkCore.Internal.DbContextServices.Initialize(IServiceProvider scopedProvider, DbContextOptions contextOptions, DbContext context)
+   at Microsoft.EntityFrameworkCore.DbContext.get_ContextServices()
+   at Microsoft.EntityFrameworkCore.DbContext.get_InternalServiceProvider()
+   at Microsoft.EntityFrameworkCore.DbContext.get_DbContextDependencies()
+   at Microsoft.EntityFrameworkCore.DbContext.Set[TEntity]()
+   at Persistence.Repositories.JsonRequestRepository.Insert(JsonRequest jsonRequest) in D:\Data\Github\Retranslator\src\Persistence\Repositories\JsonRequestRepository.cs:line 28
+   at Application.EventConsumers.ExternalJsonEventConsumer.Consume(ConsumeContext`1 context) in D:\Data\Github\Retranslator\src\Application\EventConsumers\ExternalJsonEventConsumer.cs:line 48
+   at MassTransit.DependencyInjection.ScopeConsumerFactory`1.Send[TMessage](ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/DependencyInjection/DependencyInjection/ScopeConsumerFactory.cs:line 22
+   at MassTransit.DependencyInjection.ScopeConsumerFactory`1.Send[TMessage](ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/DependencyInjection/DependencyInjection/ScopeConsumerFactory.cs:line 22
+   at MassTransit.Middleware.ConsumerMessageFilter`2.MassTransit.IFilter<MassTransit.ConsumeContext<TMessage>>.Send(ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/Middleware/ConsumerMessageFilter.cs:line 48
+   at MassTransit.Middleware.ConsumerMessageFilter`2.MassTransit.IFilter<MassTransit.ConsumeContext<TMessage>>.Send(ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/Middleware/ConsumerMessageFilter.cs:line 73
+   at MassTransit.Batching.BatchConsumer`1.Deliver(ConsumeContext context, IReadOnlyList`1 messages, BatchCompletionMode batchCompletionMode) in /_/src/MassTransit/Consumers/Batching/BatchConsumer.cs:line 141
+   at MassTransit.Batching.BatchConsumer`1.MassTransit.IConsumer<TMessage>.Consume(ConsumeContext`1 context) in /_/src/MassTransit/Consumers/Batching/BatchConsumer.cs:line 49
+   at MassTransit.Batching.BatchConsumerFactory`1.Send[T](ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/Consumers/Batching/BatchConsumerFactory.cs:line 39
+   at MassTransit.Batching.BatchConsumerFactory`1.Send[T](ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/Consumers/Batching/BatchConsumerFactory.cs:line 44
+   at MassTransit.Middleware.ConsumerMessageFilter`2.MassTransit.IFilter<MassTransit.ConsumeContext<TMessage>>.Send(ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/Middleware/ConsumerMessageFilter.cs:line 48
+2024-06-24 00:28:05.812 +03:00 [INF] Configured endpoint external-json-event, Consumer: Application.EventConsumers.ExternalJsonEventConsumer
+2024-06-24 00:28:05.835 +03:00 [INF] Configured endpoint received-domain-event, Consumer: Application.EventConsumers.ReceivedDomainEventConsumer
+2024-06-24 00:28:06.005 +03:00 [INF] Bus started: "loopback://localhost/"
+2024-06-24 00:28:06.008 +03:00 [INF] EmulatorHostedService started
+2024-06-24 00:28:06.083 +03:00 [INF] Single json request generated
+2024-06-24 00:28:07.703 +03:00 [INF] Now listening on: http://localhost:5181
+2024-06-24 00:28:07.704 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-24 00:28:07.706 +03:00 [INF] Hosting environment: Development
+2024-06-24 00:28:07.708 +03:00 [INF] Content root path: D:\Data\Github\Retranslator\src\Server
+2024-06-24 00:28:07.968 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/index.html - null null
+2024-06-24 00:28:08.115 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/index.html - 200 null text/html;charset=utf-8 151.2205ms
+2024-06-24 00:28:08.121 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - null null
+2024-06-24 00:28:08.129 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 7.6948ms
+2024-06-24 00:28:08.134 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_vs/browserLink - null null
+2024-06-24 00:28:08.170 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_vs/browserLink - 200 null text/javascript; charset=UTF-8 35.2734ms
+2024-06-24 00:28:08.225 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - null null
+2024-06-24 00:28:08.236 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-06-24 00:28:08.249 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 23.7764ms
+2024-06-24 00:28:18.501 +03:00 [INF] Received batch of json requests (size=1)
+2024-06-24 00:28:18.797 +03:00 [ERR] R-FAULT "loopback://localhost/external-json-event" "305e0000-0492-0892-f254-08dc93cb5ef1" Application.ExternalRequestContract MassTransit.Batching.BatchConsumer<Application.ExternalRequestContract>("00:00:10.9581642")
+System.InvalidOperationException: No database provider has been configured for this DbContext. A provider can be configured by overriding the 'DbContext.OnConfiguring' method or by using 'AddDbContext' on the application service provider. If 'AddDbContext' is used, then also ensure that your DbContext type accepts a DbContextOptions<TContext> object in its constructor and passes it to the base constructor for DbContext.
+   at Microsoft.EntityFrameworkCore.Internal.DbContextServices.Initialize(IServiceProvider scopedProvider, DbContextOptions contextOptions, DbContext context)
+   at Microsoft.EntityFrameworkCore.DbContext.get_ContextServices()
+   at Microsoft.EntityFrameworkCore.DbContext.get_InternalServiceProvider()
+   at Microsoft.EntityFrameworkCore.DbContext.get_DbContextDependencies()
+   at Microsoft.EntityFrameworkCore.DbContext.Set[TEntity]()
+   at Persistence.Repositories.JsonRequestRepository.Insert(JsonRequest jsonRequest) in D:\Data\Github\Retranslator\src\Persistence\Repositories\JsonRequestRepository.cs:line 28
+   at Application.EventConsumers.ExternalJsonEventConsumer.Consume(ConsumeContext`1 context) in D:\Data\Github\Retranslator\src\Application\EventConsumers\ExternalJsonEventConsumer.cs:line 48
+   at MassTransit.DependencyInjection.ScopeConsumerFactory`1.Send[TMessage](ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/DependencyInjection/DependencyInjection/ScopeConsumerFactory.cs:line 22
+   at MassTransit.DependencyInjection.ScopeConsumerFactory`1.Send[TMessage](ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/DependencyInjection/DependencyInjection/ScopeConsumerFactory.cs:line 22
+   at MassTransit.Middleware.ConsumerMessageFilter`2.MassTransit.IFilter<MassTransit.ConsumeContext<TMessage>>.Send(ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/Middleware/ConsumerMessageFilter.cs:line 48
+   at MassTransit.Middleware.ConsumerMessageFilter`2.MassTransit.IFilter<MassTransit.ConsumeContext<TMessage>>.Send(ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/Middleware/ConsumerMessageFilter.cs:line 73
+   at MassTransit.Batching.BatchConsumer`1.Deliver(ConsumeContext context, IReadOnlyList`1 messages, BatchCompletionMode batchCompletionMode) in /_/src/MassTransit/Consumers/Batching/BatchConsumer.cs:line 141
+   at MassTransit.Batching.BatchConsumer`1.MassTransit.IConsumer<TMessage>.Consume(ConsumeContext`1 context) in /_/src/MassTransit/Consumers/Batching/BatchConsumer.cs:line 49
+   at MassTransit.Batching.BatchConsumerFactory`1.Send[T](ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/Consumers/Batching/BatchConsumerFactory.cs:line 39
+   at MassTransit.Batching.BatchConsumerFactory`1.Send[T](ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/Consumers/Batching/BatchConsumerFactory.cs:line 44
+   at MassTransit.Middleware.ConsumerMessageFilter`2.MassTransit.IFilter<MassTransit.ConsumeContext<TMessage>>.Send(ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/Middleware/ConsumerMessageFilter.cs:line 48
+2024-06-24 00:33:25.781 +03:00 [INF] Configured endpoint external-json-event, Consumer: Application.EventConsumers.ExternalJsonEventConsumer
+2024-06-24 00:33:25.802 +03:00 [INF] Configured endpoint received-domain-event, Consumer: Application.EventConsumers.ReceivedDomainEventConsumer
+2024-06-24 00:33:26.028 +03:00 [INF] Bus started: "loopback://localhost/"
+2024-06-24 00:33:26.032 +03:00 [INF] EmulatorHostedService started
+2024-06-24 00:33:26.127 +03:00 [INF] Single json request generated
+2024-06-24 00:33:27.791 +03:00 [INF] Now listening on: http://localhost:5181
+2024-06-24 00:33:27.793 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-24 00:33:27.794 +03:00 [INF] Hosting environment: Development
+2024-06-24 00:33:27.795 +03:00 [INF] Content root path: D:\Data\Github\Retranslator\src\Server
+2024-06-24 00:33:28.212 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/index.html - null null
+2024-06-24 00:33:28.356 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/index.html - 200 null text/html;charset=utf-8 148.0729ms
+2024-06-24 00:33:28.363 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - null null
+2024-06-24 00:33:28.369 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 6.687ms
+2024-06-24 00:33:28.376 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_vs/browserLink - null null
+2024-06-24 00:33:28.404 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_vs/browserLink - 200 null text/javascript; charset=UTF-8 28.5139ms
+2024-06-24 00:33:28.465 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - null null
+2024-06-24 00:33:28.476 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-06-24 00:33:28.487 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 23.0997ms
+2024-06-24 00:33:34.525 +03:00 [INF] Received batch of json requests (size=1)
+2024-06-24 00:33:40.879 +03:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-06-24 00:34:42.508 +03:00 [INF] Configured endpoint external-json-event, Consumer: Application.EventConsumers.ExternalJsonEventConsumer
+2024-06-24 00:34:42.532 +03:00 [INF] Configured endpoint received-domain-event, Consumer: Application.EventConsumers.ReceivedDomainEventConsumer
+2024-06-24 00:34:42.733 +03:00 [INF] Bus started: "loopback://localhost/"
+2024-06-24 00:34:42.737 +03:00 [INF] EmulatorHostedService started
+2024-06-24 00:34:42.807 +03:00 [INF] Single json request generated
+2024-06-24 00:34:44.020 +03:00 [INF] Now listening on: http://localhost:5181
+2024-06-24 00:34:44.023 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-24 00:34:44.024 +03:00 [INF] Hosting environment: Development
+2024-06-24 00:34:44.025 +03:00 [INF] Content root path: D:\Data\Github\Retranslator\src\Server
+2024-06-24 00:34:44.431 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/index.html - null null
+2024-06-24 00:34:44.581 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/index.html - 200 null text/html;charset=utf-8 153.7019ms
+2024-06-24 00:34:44.588 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - null null
+2024-06-24 00:34:44.593 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 5.3706ms
+2024-06-24 00:34:44.600 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_vs/browserLink - null null
+2024-06-24 00:34:44.634 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_vs/browserLink - 200 null text/javascript; charset=UTF-8 34.152ms
+2024-06-24 00:34:44.689 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - null null
+2024-06-24 00:34:44.699 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-06-24 00:34:44.712 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 23.9709ms
+2024-06-24 00:34:50.034 +03:00 [INF] Received batch of json requests (size=1)
+2024-06-24 00:34:52.609 +03:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-06-24 00:41:17.453 +03:00 [INF] Configured endpoint external-json-event, Consumer: Application.EventConsumers.ExternalJsonEventConsumer
+2024-06-24 00:41:17.483 +03:00 [INF] Configured endpoint received-domain-event, Consumer: Application.EventConsumers.ReceivedDomainEventConsumer
+2024-06-24 00:41:17.724 +03:00 [INF] Bus started: "loopback://localhost/"
+2024-06-24 00:41:17.730 +03:00 [INF] EmulatorHostedService started
+2024-06-24 00:41:17.838 +03:00 [INF] Single json request generated
+2024-06-24 00:41:20.814 +03:00 [INF] Now listening on: http://localhost:5181
+2024-06-24 00:41:20.816 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-24 00:41:20.817 +03:00 [INF] Hosting environment: Development
+2024-06-24 00:41:20.818 +03:00 [INF] Content root path: D:\Data\Github\Retranslator\src\Server
+2024-06-24 00:41:21.009 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/index.html - null null
+2024-06-24 00:41:21.154 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/index.html - 200 null text/html;charset=utf-8 148.8031ms
+2024-06-24 00:41:21.179 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - null null
+2024-06-24 00:41:21.180 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_vs/browserLink - null null
+2024-06-24 00:41:21.185 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 5.4857ms
+2024-06-24 00:41:21.221 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_vs/browserLink - 200 null text/javascript; charset=UTF-8 42.094ms
+2024-06-24 00:41:21.266 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - null null
+2024-06-24 00:41:21.277 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-06-24 00:41:21.289 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 23.3767ms
+2024-06-24 00:41:24.827 +03:00 [INF] Received batch of json requests (size=1)
+2024-06-24 00:41:26.588 +03:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-06-24 00:41:37.740 +03:00 [INF] Domain events sended
+2024-06-24 00:41:42.156 +03:00 [ERR] Failed executing DbCommand (82ms) [Parameters=[@p0='c8f47006-1cdc-4568-9dda-f08eb794b929', @p1='{
+	"request": {
+		"id": 27454821037510912,
+		"document": {
+			"id": 27454820926361856,
+			"type": "INVOICE_PAYMENT"
+		}
+	},
+	"debitPart": {
+		"agreementNumber": "RUS01",
+		"accountNumber": "30109810000000000001",
+		"amount": 3442.79,
+		"currency": "810",
+		"attributes": {}
+	},
+	"creditPart": {
+		"agreementNumber": "RUS01",
+		"accountNumber": "30233810000000000001",
+		"amount": 3442.79,
+		"currency": "810",
+		"attributes": {}
+	},
+	"details": "РАСЧЕТ",
+	"bankingDate": "2023-07-26",
+	"attributes": {
+		"attribute": [
+			{
+				"code": "pack",
+				"attribute": "37"
+			}
+		]
+	}
+}' (Nullable = false), @p2='2024-06-23T21:41:24.8321786Z', @p3='1'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO public.json_request ("Id", content, received, state)
+VALUES (@p0, @p1, @p2, @p3);
+2024-06-24 00:41:42.242 +03:00 [ERR] An exception occurred in the database while saving changes for context type 'Persistence.Repositories.RetranslatorDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> System.ArgumentException: Cannot write DateTime with Kind=UTC to PostgreSQL type 'timestamp without time zone', consider using 'timestamp with time zone'. Note that it's not possible to mix DateTimes with different Kinds in an array, range, or multirange. (Parameter 'value')
+   at Npgsql.Internal.Converters.DateTimeConverterResolver`1.Get(DateTime value, Nullable`1 expectedPgTypeId, Boolean validateOnly)
+   at Npgsql.Internal.Converters.DateTimeConverterResolver.<>c.<CreateResolver>b__0_0(DateTimeConverterResolver`1 resolver, DateTime value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.Converters.DateTimeConverterResolver`1.Get(T value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgConverterResolver`1.GetAsObjectInternal(PgTypeInfo typeInfo, Object value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgResolverTypeInfo.GetResolutionAsObject(Object value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgTypeInfo.GetObjectResolution(Object value)
+   at Npgsql.NpgsqlParameter.ResolveConverter(PgTypeInfo typeInfo)
+   at Npgsql.NpgsqlParameter.ResolveTypeInfo(PgSerializerOptions options)
+   at Npgsql.NpgsqlParameterCollection.ProcessParameters(PgSerializerOptions options, Boolean validateValues, CommandType commandType)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> System.ArgumentException: Cannot write DateTime with Kind=UTC to PostgreSQL type 'timestamp without time zone', consider using 'timestamp with time zone'. Note that it's not possible to mix DateTimes with different Kinds in an array, range, or multirange. (Parameter 'value')
+   at Npgsql.Internal.Converters.DateTimeConverterResolver`1.Get(DateTime value, Nullable`1 expectedPgTypeId, Boolean validateOnly)
+   at Npgsql.Internal.Converters.DateTimeConverterResolver.<>c.<CreateResolver>b__0_0(DateTimeConverterResolver`1 resolver, DateTime value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.Converters.DateTimeConverterResolver`1.Get(T value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgConverterResolver`1.GetAsObjectInternal(PgTypeInfo typeInfo, Object value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgResolverTypeInfo.GetResolutionAsObject(Object value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgTypeInfo.GetObjectResolution(Object value)
+   at Npgsql.NpgsqlParameter.ResolveConverter(PgTypeInfo typeInfo)
+   at Npgsql.NpgsqlParameter.ResolveTypeInfo(PgSerializerOptions options)
+   at Npgsql.NpgsqlParameterCollection.ProcessParameters(PgSerializerOptions options, Boolean validateValues, CommandType commandType)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2024-06-24 00:41:42.486 +03:00 [ERR] R-FAULT "loopback://localhost/external-json-event" "24690000-0492-0892-f060-08dc93cd36da" Application.ExternalRequestContract MassTransit.Batching.BatchConsumer<Application.ExternalRequestContract>("00:00:21.6909467")
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> System.ArgumentException: Cannot write DateTime with Kind=UTC to PostgreSQL type 'timestamp without time zone', consider using 'timestamp with time zone'. Note that it's not possible to mix DateTimes with different Kinds in an array, range, or multirange. (Parameter 'value')
+   at Npgsql.Internal.Converters.DateTimeConverterResolver`1.Get(DateTime value, Nullable`1 expectedPgTypeId, Boolean validateOnly)
+   at Npgsql.Internal.Converters.DateTimeConverterResolver.<>c.<CreateResolver>b__0_0(DateTimeConverterResolver`1 resolver, DateTime value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.Converters.DateTimeConverterResolver`1.Get(T value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgConverterResolver`1.GetAsObjectInternal(PgTypeInfo typeInfo, Object value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgResolverTypeInfo.GetResolutionAsObject(Object value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgTypeInfo.GetObjectResolution(Object value)
+   at Npgsql.NpgsqlParameter.ResolveConverter(PgTypeInfo typeInfo)
+   at Npgsql.NpgsqlParameter.ResolveTypeInfo(PgSerializerOptions options)
+   at Npgsql.NpgsqlParameterCollection.ProcessParameters(PgSerializerOptions options, Boolean validateValues, CommandType commandType)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Persistence.Repositories.UnitOfWork.SaveChangesAsync(CancellationToken ct) in D:\Data\Github\Retranslator\src\Persistence\Repositories\UnitOfWork.cs:line 17
+   at Application.EventConsumers.ExternalJsonEventConsumer.Consume(ConsumeContext`1 context) in D:\Data\Github\Retranslator\src\Application\EventConsumers\ExternalJsonEventConsumer.cs:line 53
+   at MassTransit.DependencyInjection.ScopeConsumerFactory`1.Send[TMessage](ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/DependencyInjection/DependencyInjection/ScopeConsumerFactory.cs:line 22
+   at MassTransit.DependencyInjection.ScopeConsumerFactory`1.Send[TMessage](ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/DependencyInjection/DependencyInjection/ScopeConsumerFactory.cs:line 22
+   at MassTransit.Middleware.ConsumerMessageFilter`2.MassTransit.IFilter<MassTransit.ConsumeContext<TMessage>>.Send(ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/Middleware/ConsumerMessageFilter.cs:line 48
+   at MassTransit.Middleware.ConsumerMessageFilter`2.MassTransit.IFilter<MassTransit.ConsumeContext<TMessage>>.Send(ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/Middleware/ConsumerMessageFilter.cs:line 73
+   at MassTransit.Batching.BatchConsumer`1.Deliver(ConsumeContext context, IReadOnlyList`1 messages, BatchCompletionMode batchCompletionMode) in /_/src/MassTransit/Consumers/Batching/BatchConsumer.cs:line 141
+   at MassTransit.Batching.BatchConsumer`1.MassTransit.IConsumer<TMessage>.Consume(ConsumeContext`1 context) in /_/src/MassTransit/Consumers/Batching/BatchConsumer.cs:line 49
+   at MassTransit.Batching.BatchConsumerFactory`1.Send[T](ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/Consumers/Batching/BatchConsumerFactory.cs:line 39
+   at MassTransit.Batching.BatchConsumerFactory`1.Send[T](ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/Consumers/Batching/BatchConsumerFactory.cs:line 44
+   at MassTransit.Middleware.ConsumerMessageFilter`2.MassTransit.IFilter<MassTransit.ConsumeContext<TMessage>>.Send(ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/Middleware/ConsumerMessageFilter.cs:line 48
+2024-06-24 00:44:47.882 +03:00 [INF] Configured endpoint external-json-event, Consumer: Application.EventConsumers.ExternalJsonEventConsumer
+2024-06-24 00:44:47.905 +03:00 [INF] Configured endpoint received-domain-event, Consumer: Application.EventConsumers.ReceivedDomainEventConsumer
+2024-06-24 00:44:48.084 +03:00 [INF] Bus started: "loopback://localhost/"
+2024-06-24 00:44:48.087 +03:00 [INF] EmulatorHostedService started
+2024-06-24 00:44:48.157 +03:00 [INF] Single json request generated
+2024-06-24 00:44:49.317 +03:00 [INF] Now listening on: http://localhost:5181
+2024-06-24 00:44:49.321 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-24 00:44:49.322 +03:00 [INF] Hosting environment: Development
+2024-06-24 00:44:49.324 +03:00 [INF] Content root path: D:\Data\Github\Retranslator\src\Server
+2024-06-24 00:44:49.691 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/index.html - null null
+2024-06-24 00:44:49.881 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/index.html - 200 null text/html;charset=utf-8 195.1906ms
+2024-06-24 00:44:49.892 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - null null
+2024-06-24 00:44:49.898 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 6.8856ms
+2024-06-24 00:44:49.907 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_vs/browserLink - null null
+2024-06-24 00:44:49.952 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_vs/browserLink - 200 null text/javascript; charset=UTF-8 44.7715ms
+2024-06-24 00:44:50.016 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - null null
+2024-06-24 00:44:50.029 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-06-24 00:44:50.045 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 28.8483ms
+2024-06-24 00:44:51.195 +03:00 [INF] Received batch of json requests (size=1)
+2024-06-24 00:44:51.677 +03:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-06-24 00:44:54.486 +03:00 [INF] Domain events sended
+2024-06-24 00:44:55.818 +03:00 [INF] Executed DbCommand (67ms) [Parameters=[@p0='cf28aaa9-b6b5-48f0-b7ec-480c8511b33e', @p1='{
+	"request": {
+		"id": 27454821037510912,
+		"document": {
+			"id": 27454820926361856,
+			"type": "INVOICE_PAYMENT"
+		}
+	},
+	"debitPart": {
+		"agreementNumber": "RUS01",
+		"accountNumber": "30109810000000000001",
+		"amount": 3442.79,
+		"currency": "810",
+		"attributes": {}
+	},
+	"creditPart": {
+		"agreementNumber": "RUS01",
+		"accountNumber": "30233810000000000001",
+		"amount": 3442.79,
+		"currency": "810",
+		"attributes": {}
+	},
+	"details": "РАСЧЕТ",
+	"bankingDate": "2023-07-26",
+	"attributes": {
+		"attribute": [
+			{
+				"code": "pack",
+				"attribute": "37"
+			}
+		]
+	}
+}' (Nullable = false), @p2='2024-06-23T21:44:51.2003422Z' (DbType = DateTime), @p3='1'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO public.json_request ("Id", content, received, state)
+VALUES (@p0, @p1, @p2, @p3);
+2024-06-24 00:46:48.882 +03:00 [INF] Configured endpoint external-json-event, Consumer: Application.EventConsumers.ExternalJsonEventConsumer
+2024-06-24 00:46:48.903 +03:00 [INF] Configured endpoint received-domain-event, Consumer: Application.EventConsumers.ReceivedDomainEventConsumer
+2024-06-24 00:46:49.076 +03:00 [INF] Bus started: "loopback://localhost/"
+2024-06-24 00:46:49.080 +03:00 [INF] EmulatorHostedService started
+2024-06-24 00:46:49.152 +03:00 [INF] Single json request generated
+2024-06-24 00:46:52.158 +03:00 [INF] Now listening on: http://localhost:5181
+2024-06-24 00:46:52.164 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-24 00:46:52.167 +03:00 [INF] Hosting environment: Development
+2024-06-24 00:46:52.171 +03:00 [INF] Content root path: D:\Data\Github\Retranslator\src\Server
+2024-06-24 00:46:52.332 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/index.html - null null
+2024-06-24 00:46:52.474 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/index.html - 200 null text/html;charset=utf-8 145.3005ms
+2024-06-24 00:46:52.499 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_vs/browserLink - null null
+2024-06-24 00:46:52.499 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - null null
+2024-06-24 00:46:52.513 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 13.4536ms
+2024-06-24 00:46:52.535 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_vs/browserLink - 200 null text/javascript; charset=UTF-8 35.5813ms
+2024-06-24 00:46:52.582 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - null null
+2024-06-24 00:46:52.595 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-06-24 00:46:52.608 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 26.7854ms
+2024-06-24 00:46:54.122 +03:00 [INF] Received batch of json requests (size=1)
+2024-06-24 00:46:54.614 +03:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-06-24 00:47:07.792 +03:00 [INF] Domain events sended
+2024-06-24 00:47:09.591 +03:00 [INF] Executed DbCommand (47ms) [Parameters=[@p0='2c338ada-91d3-4c16-be23-403e03d23918', @p1='{
+	"request": {
+		"id": 27454821037510912,
+		"document": {
+			"id": 27454820926361856,
+			"type": "INVOICE_PAYMENT"
+		}
+	},
+	"debitPart": {
+		"agreementNumber": "RUS01",
+		"accountNumber": "30109810000000000001",
+		"amount": 3442.79,
+		"currency": "810",
+		"attributes": {}
+	},
+	"creditPart": {
+		"agreementNumber": "RUS01",
+		"accountNumber": "30233810000000000001",
+		"amount": 3442.79,
+		"currency": "810",
+		"attributes": {}
+	},
+	"details": "РАСЧЕТ",
+	"bankingDate": "2023-07-26",
+	"attributes": {
+		"attribute": [
+			{
+				"code": "pack",
+				"attribute": "37"
+			}
+		]
+	}
+}' (Nullable = false), @p2='2024-06-23T21:46:54.1258266Z' (DbType = DateTime), @p3='1'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO public.json_request ("Id", content, received, state)
+VALUES (@p0, @p1, @p2, @p3);
+2024-06-24 00:49:00.372 +03:00 [INF] Configured endpoint external-json-event, Consumer: Application.EventConsumers.ExternalJsonEventConsumer
+2024-06-24 00:49:00.397 +03:00 [INF] Configured endpoint received-domain-event, Consumer: Application.EventConsumers.ReceivedDomainEventConsumer
+2024-06-24 00:49:00.575 +03:00 [INF] Bus started: "loopback://localhost/"
+2024-06-24 00:49:00.578 +03:00 [INF] EmulatorHostedService started
+2024-06-24 00:49:00.650 +03:00 [INF] Single json request generated
+2024-06-24 00:49:01.786 +03:00 [INF] Now listening on: http://localhost:5181
+2024-06-24 00:49:01.789 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-24 00:49:01.790 +03:00 [INF] Hosting environment: Development
+2024-06-24 00:49:01.793 +03:00 [INF] Content root path: D:\Data\Github\Retranslator\src\Server
+2024-06-24 00:49:02.595 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/index.html - null null
+2024-06-24 00:49:03.338 +03:00 [INF] Received batch of json requests (size=1)
+2024-06-24 00:49:03.395 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/index.html - 200 null text/html;charset=utf-8 804.4015ms
+2024-06-24 00:49:03.425 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - null null
+2024-06-24 00:49:03.426 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_vs/browserLink - null null
+2024-06-24 00:49:03.431 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 6.9471ms
+2024-06-24 00:49:03.466 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_vs/browserLink - 200 null text/javascript; charset=UTF-8 40.7066ms
+2024-06-24 00:49:03.512 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - null null
+2024-06-24 00:49:03.522 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-06-24 00:49:03.533 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 21.6624ms
+2024-06-24 00:49:03.698 +03:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-06-24 00:49:06.427 +03:00 [INF] Domain events sended
+2024-06-24 00:49:07.907 +03:00 [INF] Executed DbCommand (93ms) [Parameters=[@p0='ac33e022-d44d-4f53-9295-060d1e59b800', @p1='{
+	"request": {
+		"id": 27454821037510912,
+		"document": {
+			"id": 27454820926361856,
+			"type": "INVOICE_PAYMENT"
+		}
+	},
+	"debitPart": {
+		"agreementNumber": "RUS01",
+		"accountNumber": "30109810000000000001",
+		"amount": 3442.79,
+		"currency": "810",
+		"attributes": {}
+	},
+	"creditPart": {
+		"agreementNumber": "RUS01",
+		"accountNumber": "30233810000000000001",
+		"amount": 3442.79,
+		"currency": "810",
+		"attributes": {}
+	},
+	"details": "РАСЧЕТ",
+	"bankingDate": "2023-07-26",
+	"attributes": {
+		"attribute": [
+			{
+				"code": "pack",
+				"attribute": "37"
+			}
+		]
+	}
+}' (Nullable = false), @p2='2024-06-23T21:49:03.3430721Z' (DbType = DateTime), @p3='1'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO public.json_request ("Id", content, received, state)
+VALUES (@p0, @p1, @p2, @p3);
+2024-06-24 00:49:29.989 +03:00 [INF] Configured endpoint external-json-event, Consumer: Application.EventConsumers.ExternalJsonEventConsumer
+2024-06-24 00:49:30.011 +03:00 [INF] Configured endpoint received-domain-event, Consumer: Application.EventConsumers.ReceivedDomainEventConsumer
+2024-06-24 00:49:30.179 +03:00 [INF] Bus started: "loopback://localhost/"
+2024-06-24 00:49:30.183 +03:00 [INF] EmulatorHostedService started
+2024-06-24 00:49:30.819 +03:00 [INF] Single json request generated
+2024-06-24 00:49:31.951 +03:00 [INF] Now listening on: http://localhost:5181
+2024-06-24 00:49:31.953 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-24 00:49:31.954 +03:00 [INF] Hosting environment: Development
+2024-06-24 00:49:31.955 +03:00 [INF] Content root path: D:\Data\Github\Retranslator\src\Server
+2024-06-24 00:49:32.536 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/index.html - null null
+2024-06-24 00:49:32.681 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/index.html - 200 null text/html;charset=utf-8 149.2723ms
+2024-06-24 00:49:32.707 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - null null
+2024-06-24 00:49:32.708 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_vs/browserLink - null null
+2024-06-24 00:49:32.714 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 7.7916ms
+2024-06-24 00:49:32.738 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_vs/browserLink - 200 null text/javascript; charset=UTF-8 31.3435ms
+2024-06-24 00:49:32.788 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - null null
+2024-06-24 00:49:32.799 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-06-24 00:49:32.812 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 23.5216ms
+2024-06-24 00:49:33.606 +03:00 [INF] Received batch of json requests (size=1)
+2024-06-24 00:49:34.045 +03:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-06-24 00:49:39.402 +03:00 [INF] Domain events sended
+2024-06-24 00:49:43.308 +03:00 [INF] Executed DbCommand (131ms) [Parameters=[@p0='b288f239-627f-49eb-8f03-5a03399e7d1b', @p1='{
+	"request": {
+		"id": 27454821037510912,
+		"document": {
+			"id": 27454820926361856,
+			"type": "INVOICE_PAYMENT"
+		}
+	},
+	"debitPart": {
+		"agreementNumber": "RUS01",
+		"accountNumber": "30109810000000000001",
+		"amount": 3442.79,
+		"currency": "810",
+		"attributes": {}
+	},
+	"creditPart": {
+		"agreementNumber": "RUS01",
+		"accountNumber": "30233810000000000001",
+		"amount": 3442.79,
+		"currency": "810",
+		"attributes": {}
+	},
+	"details": "РАСЧЕТ",
+	"bankingDate": "2023-07-26",
+	"attributes": {
+		"attribute": [
+			{
+				"code": "pack",
+				"attribute": "37"
+			}
+		]
+	}
+}' (Nullable = false), @p2='2024-06-23T21:49:33.6102065Z' (DbType = DateTime), @p3='1'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO public.json_request ("Id", content, received, state)
+VALUES (@p0, @p1, @p2, @p3);
+2024-06-24 00:55:15.673 +03:00 [INF] Configured endpoint external-json-event, Consumer: Application.EventConsumers.ExternalJsonEventConsumer
+2024-06-24 00:55:15.697 +03:00 [INF] Configured endpoint received-domain-event, Consumer: Application.EventConsumers.ReceivedDomainEventConsumer
+2024-06-24 00:55:15.868 +03:00 [INF] Bus started: "loopback://localhost/"
+2024-06-24 00:55:15.871 +03:00 [INF] EmulatorHostedService started
+2024-06-24 00:55:18.401 +03:00 [INF] Single json request generated
+2024-06-24 00:55:19.894 +03:00 [INF] Now listening on: http://localhost:5181
+2024-06-24 00:55:19.896 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-24 00:55:19.897 +03:00 [INF] Hosting environment: Development
+2024-06-24 00:55:19.899 +03:00 [INF] Content root path: D:\Data\Github\Retranslator\src\Server
+2024-06-24 00:55:20.395 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/index.html - null null
+2024-06-24 00:55:20.548 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/index.html - 200 null text/html;charset=utf-8 156.7074ms
+2024-06-24 00:55:20.588 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - null null
+2024-06-24 00:55:20.588 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_vs/browserLink - null null
+2024-06-24 00:55:20.598 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 12.9757ms
+2024-06-24 00:55:20.663 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_vs/browserLink - 200 null text/javascript; charset=UTF-8 74.9232ms
+2024-06-24 00:55:20.796 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - null null
+2024-06-24 00:55:20.832 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-06-24 00:55:20.854 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 57.1699ms
+2024-06-24 00:55:22.284 +03:00 [INF] Received batch of json requests (size=1)
+2024-06-24 00:55:22.780 +03:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-06-24 00:55:26.240 +03:00 [INF] Domain events sended
+2024-06-24 00:55:26.655 +03:00 [INF] Executed DbCommand (87ms) [Parameters=[@p0='5a07f3d1-e506-430f-9af7-76d6816a6a28', @p1='{
+	"request": {
+		"id": 27454821037510912,
+		"document": {
+			"id": 27454820926361856,
+			"type": "INVOICE_PAYMENT"
+		}
+	},
+	"debitPart": {
+		"agreementNumber": "RUS01",
+		"accountNumber": "30109810000000000001",
+		"amount": 3442.79,
+		"currency": "810",
+		"attributes": {}
+	},
+	"creditPart": {
+		"agreementNumber": "RUS01",
+		"accountNumber": "30233810000000000001",
+		"amount": 3442.79,
+		"currency": "810",
+		"attributes": {}
+	},
+	"details": "РАСЧЕТ",
+	"bankingDate": "2023-07-26",
+	"attributes": {
+		"attribute": [
+			{
+				"code": "pack",
+				"attribute": "37"
+			}
+		]
+	}
+}' (Nullable = false), @p2='2024-06-23T21:55:22.2879381Z' (DbType = DateTime), @p3='1'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO public.json_request ("Id", content, received, state)
+VALUES (@p0, @p1, @p2, @p3);
+2024-06-24 00:58:17.609 +03:00 [INF] Configured endpoint external-json-event, Consumer: Application.EventConsumers.ExternalJsonEventConsumer
+2024-06-24 00:58:17.632 +03:00 [INF] Configured endpoint received-domain-event, Consumer: Application.EventConsumers.ReceivedDomainEventConsumer
+2024-06-24 00:58:17.807 +03:00 [INF] Bus started: "loopback://localhost/"
+2024-06-24 00:58:17.810 +03:00 [INF] EmulatorHostedService started
+2024-06-24 00:58:19.779 +03:00 [INF] Single json request generated
+2024-06-24 00:58:21.062 +03:00 [INF] Now listening on: http://localhost:5181
+2024-06-24 00:58:21.064 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-24 00:58:21.066 +03:00 [INF] Hosting environment: Development
+2024-06-24 00:58:21.068 +03:00 [INF] Content root path: D:\Data\Github\Retranslator\src\Server
+2024-06-24 00:58:21.238 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/index.html - null null
+2024-06-24 00:58:21.395 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/index.html - 200 null text/html;charset=utf-8 160.283ms
+2024-06-24 00:58:21.420 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - null null
+2024-06-24 00:58:21.420 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_vs/browserLink - null null
+2024-06-24 00:58:21.427 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 6.522ms
+2024-06-24 00:58:21.460 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_vs/browserLink - 200 null text/javascript; charset=UTF-8 39.7769ms
+2024-06-24 00:58:21.515 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - null null
+2024-06-24 00:58:21.528 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-06-24 00:58:21.544 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 28.9976ms
+2024-06-24 00:58:24.675 +03:00 [INF] Received batch of json requests (size=1)
+2024-06-24 00:58:25.449 +03:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-06-24 00:58:28.034 +03:00 [INF] Domain events sended
+2024-06-24 00:58:28.528 +03:00 [INF] Executed DbCommand (77ms) [Parameters=[@p0='684c2dab-5b6b-4bf6-ab9d-5d41e8959383', @p1='{
+	"request": {
+		"id": 27454821037510912,
+		"document": {
+			"id": 27454820926361856,
+			"type": "INVOICE_PAYMENT"
+		}
+	},
+	"debitPart": {
+		"agreementNumber": "RUS01",
+		"accountNumber": "30109810000000000001",
+		"amount": 3442.79,
+		"currency": "810",
+		"attributes": {}
+	},
+	"creditPart": {
+		"agreementNumber": "RUS01",
+		"accountNumber": "30233810000000000001",
+		"amount": 3442.79,
+		"currency": "810",
+		"attributes": {}
+	},
+	"details": "РАСЧЕТ",
+	"bankingDate": "2023-07-26",
+	"attributes": {
+		"attribute": [
+			{
+				"code": "pack",
+				"attribute": "37"
+			}
+		]
+	}
+}' (Nullable = false), @p2='2024-06-23T21:58:24.6829964Z' (DbType = DateTime), @p3='1'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO public.json_request ("Id", content, received, state)
+VALUES (@p0, @p1, @p2, @p3);
+2024-06-24 01:01:02.596 +03:00 [INF] Configured endpoint external-json-event, Consumer: Application.EventConsumers.ExternalJsonEventConsumer
+2024-06-24 01:01:02.619 +03:00 [INF] Configured endpoint received-domain-event, Consumer: Application.EventConsumers.ReceivedDomainEventConsumer
+2024-06-24 01:01:02.872 +03:00 [INF] EmulatorHostedService started
+2024-06-24 01:01:02.872 +03:00 [INF] Bus started: "loopback://localhost/"
+2024-06-24 01:01:04.428 +03:00 [INF] Single json request generated
+2024-06-24 01:01:05.592 +03:00 [INF] Now listening on: http://localhost:5181
+2024-06-24 01:01:05.595 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-24 01:01:05.596 +03:00 [INF] Hosting environment: Development
+2024-06-24 01:01:05.598 +03:00 [INF] Content root path: D:\Data\Github\Retranslator\src\Server
+2024-06-24 01:01:06.208 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/index.html - null null
+2024-06-24 01:01:06.367 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/index.html - 200 null text/html;charset=utf-8 161.9742ms
+2024-06-24 01:01:06.378 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - null null
+2024-06-24 01:01:06.384 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 6.1865ms
+2024-06-24 01:01:06.391 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_vs/browserLink - null null
+2024-06-24 01:01:06.421 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_vs/browserLink - 200 null text/javascript; charset=UTF-8 30.1056ms
+2024-06-24 01:01:06.477 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - null null
+2024-06-24 01:01:06.486 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-06-24 01:01:06.499 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 22.4089ms
+2024-06-24 01:01:13.054 +03:00 [INF] Received batch of json requests (size=1)
+2024-06-24 01:01:13.438 +03:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-06-24 01:01:16.670 +03:00 [INF] Domain events sended
+2024-06-24 01:01:16.982 +03:00 [INF] Executed DbCommand (45ms) [Parameters=[@p0='01f8b53e-14c2-4e17-a97a-5b367c215023', @p1='{
+	"request": {
+		"id": 27454821037510912,
+		"document": {
+			"id": 27454820926361856,
+			"type": "INVOICE_PAYMENT"
+		}
+	},
+	"debitPart": {
+		"agreementNumber": "RUS01",
+		"accountNumber": "30109810000000000001",
+		"amount": 3442.79,
+		"currency": "810",
+		"attributes": {}
+	},
+	"creditPart": {
+		"agreementNumber": "RUS01",
+		"accountNumber": "30233810000000000001",
+		"amount": 3442.79,
+		"currency": "810",
+		"attributes": {}
+	},
+	"details": "РАСЧЕТ",
+	"bankingDate": "2023-07-26",
+	"attributes": {
+		"attribute": [
+			{
+				"code": "pack",
+				"attribute": "37"
+			}
+		]
+	}
+}' (Nullable = false), @p2='2024-06-23T22:01:13.0598310Z' (DbType = DateTime), @p3='1'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO public.json_request ("Id", content, received, state)
+VALUES (@p0, @p1, @p2, @p3);
+2024-06-24 01:11:16.720 +03:00 [INF] Configured endpoint external-json-event, Consumer: Application.EventConsumers.ExternalJsonEventConsumer
+2024-06-24 01:11:16.744 +03:00 [INF] Configured endpoint received-domain-event, Consumer: Application.EventConsumers.ReceivedDomainEventConsumer
+2024-06-24 01:11:16.923 +03:00 [INF] Bus started: "loopback://localhost/"
+2024-06-24 01:11:16.926 +03:00 [INF] EmulatorHostedService started
+2024-06-24 01:11:18.439 +03:00 [INF] Single json request generated
+2024-06-24 01:11:23.216 +03:00 [INF] Now listening on: http://localhost:5181
+2024-06-24 01:11:23.219 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-24 01:11:23.221 +03:00 [INF] Hosting environment: Development
+2024-06-24 01:11:23.223 +03:00 [INF] Content root path: D:\Data\Github\Retranslator\src\Server
+2024-06-24 01:11:23.715 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/index.html - null null
+2024-06-24 01:11:25.246 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/index.html - 200 null text/html;charset=utf-8 1534.8855ms
+2024-06-24 01:11:26.319 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - null null
+2024-06-24 01:11:28.246 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_vs/browserLink - null null
+2024-06-24 01:11:28.261 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 1942.0473ms
+2024-06-24 01:11:28.324 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_vs/browserLink - 200 null text/javascript; charset=UTF-8 81.3325ms
+2024-06-24 01:11:35.760 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - null null
+2024-06-24 01:11:35.760 +03:00 [INF] Received batch of json requests (size=1)
+2024-06-24 01:11:35.816 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-06-24 01:11:35.865 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 105.5932ms
+2024-06-24 01:11:36.162 +03:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-06-24 01:11:38.564 +03:00 [INF] Domain events sended
+2024-06-24 01:11:38.846 +03:00 [INF] Executed DbCommand (47ms) [Parameters=[@p0='80b23b98-78a6-4de6-bb04-6b083180eeba', @p1='{
+	"request": {
+		"id": 27454821037510912,
+		"document": {
+			"id": 27454820926361856,
+			"type": "INVOICE_PAYMENT"
+		}
+	},
+	"debitPart": {
+		"agreementNumber": "RUS01",
+		"accountNumber": "30109810000000000001",
+		"amount": 3442.79,
+		"currency": "810",
+		"attributes": {}
+	},
+	"creditPart": {
+		"agreementNumber": "RUS01",
+		"accountNumber": "30233810000000000001",
+		"amount": 3442.79,
+		"currency": "810",
+		"attributes": {}
+	},
+	"details": "РАСЧЕТ",
+	"bankingDate": "2023-07-26",
+	"attributes": {
+		"attribute": [
+			{
+				"code": "pack",
+				"attribute": "37"
+			}
+		]
+	}
+}' (Nullable = false), @p2='2024-06-23T22:11:35.7738041Z' (DbType = DateTime), @p3='1'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO public.json_request ("Id", content, received, state)
+VALUES (@p0, @p1, @p2, @p3);
+2024-06-24 01:16:58.092 +03:00 [INF] Configured endpoint external-json-event, Consumer: Application.EventConsumers.ExternalJsonEventConsumer
+2024-06-24 01:16:58.117 +03:00 [INF] Configured endpoint received-domain-event, Consumer: Application.EventConsumers.ReceivedDomainEventConsumer
+2024-06-24 01:16:58.300 +03:00 [INF] Bus started: "loopback://localhost/"
+2024-06-24 01:16:58.303 +03:00 [INF] EmulatorHostedService started
+2024-06-24 01:16:59.719 +03:00 [INF] Single json request generated
+2024-06-24 01:17:00.931 +03:00 [INF] Now listening on: http://localhost:5181
+2024-06-24 01:17:00.933 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-24 01:17:00.935 +03:00 [INF] Hosting environment: Development
+2024-06-24 01:17:00.937 +03:00 [INF] Content root path: D:\Data\Github\Retranslator\src\Server
+2024-06-24 01:17:01.383 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/index.html - null null
+2024-06-24 01:17:01.535 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/index.html - 200 null text/html;charset=utf-8 157.2643ms
+2024-06-24 01:17:01.561 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_vs/browserLink - null null
+2024-06-24 01:17:01.561 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - null null
+2024-06-24 01:17:01.571 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 9.7154ms
+2024-06-24 01:17:01.592 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_vs/browserLink - 200 null text/javascript; charset=UTF-8 31.9902ms
+2024-06-24 01:17:01.654 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - null null
+2024-06-24 01:17:01.665 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-06-24 01:17:01.678 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 23.6821ms
+2024-06-24 01:17:07.745 +03:00 [INF] Received batch of json requests (size=1)
+2024-06-24 01:17:08.679 +03:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-06-24 01:17:28.289 +03:00 [INF] Domain events sended
+2024-06-24 01:19:58.212 +03:00 [INF] Configured endpoint external-json-event, Consumer: Application.EventConsumers.ExternalJsonEventConsumer
+2024-06-24 01:19:58.235 +03:00 [INF] Configured endpoint received-domain-event, Consumer: Application.EventConsumers.ReceivedDomainEventConsumer
+2024-06-24 01:19:58.415 +03:00 [INF] Bus started: "loopback://localhost/"
+2024-06-24 01:19:58.418 +03:00 [INF] EmulatorHostedService started
+2024-06-24 01:19:58.492 +03:00 [INF] Single json request generated
+2024-06-24 01:20:04.900 +03:00 [INF] Now listening on: http://localhost:5181
+2024-06-24 01:20:04.903 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-24 01:20:04.905 +03:00 [INF] Hosting environment: Development
+2024-06-24 01:20:04.907 +03:00 [INF] Content root path: D:\Data\Github\Retranslator\src\Server
+2024-06-24 01:20:05.665 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/index.html - null null
+2024-06-24 01:20:08.165 +03:00 [INF] Received batch of json requests (size=1)
+2024-06-24 01:20:08.394 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/index.html - 200 null text/html;charset=utf-8 2737.0679ms
+2024-06-24 01:20:08.415 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - null null
+2024-06-24 01:20:08.431 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 16.2567ms
+2024-06-24 01:20:08.452 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_vs/browserLink - null null
+2024-06-24 01:20:08.523 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_vs/browserLink - 200 null text/javascript; charset=UTF-8 71.5822ms
+2024-06-24 01:20:08.598 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - null null
+2024-06-24 01:20:08.622 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-06-24 01:20:08.658 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 59.8758ms
+2024-06-24 01:20:09.021 +03:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-06-24 01:20:10.355 +03:00 [INF] Domain events sended
+2024-06-24 01:20:10.959 +03:00 [INF] Executed DbCommand (143ms) [Parameters=[@p0='990b5ddb-072c-496e-a55c-be534dce4778', @p1='{
+	"request": {
+		"id": 27454821037510912,
+		"document": {
+			"id": 27454820926361856,
+			"type": "INVOICE_PAYMENT"
+		}
+	},
+	"debitPart": {
+		"agreementNumber": "RUS01",
+		"accountNumber": "30109810000000000001",
+		"amount": 3442.79,
+		"currency": "810",
+		"attributes": {}
+	},
+	"creditPart": {
+		"agreementNumber": "RUS01",
+		"accountNumber": "30233810000000000001",
+		"amount": 3442.79,
+		"currency": "810",
+		"attributes": {}
+	},
+	"details": "РАСЧЕТ",
+	"bankingDate": "2023-07-26",
+	"attributes": {
+		"attribute": [
+			{
+				"code": "pack",
+				"attribute": "37"
+			}
+		]
+	}
+}' (Nullable = false), @p2='2024-06-23T22:20:08.1704468Z' (DbType = DateTime), @p3='1'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO public.json_request ("Id", content, received, state)
+VALUES (@p0, @p1, @p2, @p3);
+2024-06-24 01:20:42.197 +03:00 [INF] Configured endpoint external-json-event, Consumer: Application.EventConsumers.ExternalJsonEventConsumer
+2024-06-24 01:20:42.224 +03:00 [INF] Configured endpoint received-domain-event, Consumer: Application.EventConsumers.ReceivedDomainEventConsumer
+2024-06-24 01:20:42.452 +03:00 [INF] Bus started: "loopback://localhost/"
+2024-06-24 01:20:42.458 +03:00 [INF] EmulatorHostedService started
+2024-06-24 01:20:42.551 +03:00 [INF] Single json request generated
+2024-06-24 01:20:43.459 +03:00 [INF] Now listening on: http://localhost:5181
+2024-06-24 01:20:43.461 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-24 01:20:43.463 +03:00 [INF] Hosting environment: Development
+2024-06-24 01:20:43.465 +03:00 [INF] Content root path: D:\Data\Github\Retranslator\src\Server
+2024-06-24 01:20:43.907 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/index.html - null null
+2024-06-24 01:20:44.051 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/index.html - 200 null text/html;charset=utf-8 147.9341ms
+2024-06-24 01:20:44.057 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - null null
+2024-06-24 01:20:44.062 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 5.5263ms
+2024-06-24 01:20:44.069 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_vs/browserLink - null null
+2024-06-24 01:20:44.106 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_vs/browserLink - 200 null text/javascript; charset=UTF-8 36.6073ms
+2024-06-24 01:20:44.159 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - null null
+2024-06-24 01:20:44.170 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-06-24 01:20:44.182 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 23.9834ms
+2024-06-24 01:20:45.145 +03:00 [INF] Received batch of json requests (size=1)
+2024-06-24 01:20:45.632 +03:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-06-24 01:20:47.716 +03:00 [INF] Domain events sended
+2024-06-24 01:20:48.069 +03:00 [INF] Executed DbCommand (55ms) [Parameters=[@p0='09788acf-8a46-4462-992f-44ec336bdc4e', @p1='{
+	"request": {
+		"id": 27454821037510912,
+		"document": {
+			"id": 27454820926361856,
+			"type": "INVOICE_PAYMENT"
+		}
+	},
+	"debitPart": {
+		"agreementNumber": "RUS01",
+		"accountNumber": "30109810000000000001",
+		"amount": 3442.79,
+		"currency": "810",
+		"attributes": {}
+	},
+	"creditPart": {
+		"agreementNumber": "RUS01",
+		"accountNumber": "30233810000000000001",
+		"amount": 3442.79,
+		"currency": "810",
+		"attributes": {}
+	},
+	"details": "РАСЧЕТ",
+	"bankingDate": "2023-07-26",
+	"attributes": {
+		"attribute": [
+			{
+				"code": "pack",
+				"attribute": "37"
+			}
+		]
+	}
+}' (Nullable = false), @p2='2024-06-23T22:20:45.1499059Z' (DbType = DateTime), @p3='1'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO public.json_request ("Id", content, received, state)
+VALUES (@p0, @p1, @p2, @p3);
+2024-06-24 01:22:53.808 +03:00 [INF] Configured endpoint external-json-event, Consumer: Application.EventConsumers.ExternalJsonEventConsumer
+2024-06-24 01:22:53.832 +03:00 [INF] Configured endpoint received-domain-event, Consumer: Application.EventConsumers.ReceivedDomainEventConsumer
+2024-06-24 01:22:54.016 +03:00 [INF] Bus started: "loopback://localhost/"
+2024-06-24 01:22:54.019 +03:00 [INF] EmulatorHostedService started
+2024-06-24 01:22:54.089 +03:00 [INF] Single json request generated
+2024-06-24 01:22:55.402 +03:00 [INF] Now listening on: http://localhost:5181
+2024-06-24 01:22:55.404 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-06-24 01:22:55.406 +03:00 [INF] Hosting environment: Development
+2024-06-24 01:22:55.407 +03:00 [INF] Content root path: D:\Data\Github\Retranslator\src\Server
+2024-06-24 01:22:56.203 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/index.html - null null
+2024-06-24 01:22:56.364 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/index.html - 200 null text/html;charset=utf-8 164.8814ms
+2024-06-24 01:22:56.376 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - null null
+2024-06-24 01:22:56.383 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 7.1677ms
+2024-06-24 01:22:56.402 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/_vs/browserLink - null null
+2024-06-24 01:22:57.412 +03:00 [INF] Received batch of json requests (size=1)
+2024-06-24 01:22:57.481 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/_vs/browserLink - 200 null text/javascript; charset=UTF-8 1079.378ms
+2024-06-24 01:22:57.566 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - null null
+2024-06-24 01:22:57.586 +03:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-06-24 01:22:57.601 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5181/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 36.1805ms
+2024-06-24 01:22:57.885 +03:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2024-06-24 01:23:00.832 +03:00 [INF] Domain events sended
+2024-06-24 01:23:01.372 +03:00 [INF] Executed DbCommand (102ms) [Parameters=[@p0='70f03bd7-2499-47e6-a8e3-506f89263ec4', @p1='{
+	"request": {
+		"id": 27454821037510912,
+		"document": {
+			"id": 27454820926361856,
+			"type": "INVOICE_PAYMENT"
+		}
+	},
+	"debitPart": {
+		"agreementNumber": "RUS01",
+		"accountNumber": "30109810000000000001",
+		"amount": 3442.79,
+		"currency": "810",
+		"attributes": {}
+	},
+	"creditPart": {
+		"agreementNumber": "RUS01",
+		"accountNumber": "30233810000000000001",
+		"amount": 3442.79,
+		"currency": "810",
+		"attributes": {}
+	},
+	"details": "РАСЧЕТ",
+	"bankingDate": "2023-07-26",
+	"attributes": {
+		"attribute": [
+			{
+				"code": "pack",
+				"attribute": "37"
+			}
+		]
+	}
+}' (Nullable = false), @p2='2024-06-23T22:22:57.4170289Z' (DbType = DateTime), @p3='1'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO public.json_request ("Id", content, received, state)
+VALUES (@p0, @p1, @p2, @p3);
+2024-06-24 01:23:16.688 +03:00 [INF] Start processing request
+2024-06-24 01:23:19.158 +03:00 [INF] Executed DbCommand (23ms) [Parameters=[@__id_0='70f03bd7-2499-47e6-a8e3-506f89263ec4'], CommandType='"Text"', CommandTimeout='30']
+SELECT j."Id", j.content, j.received, j.state
+FROM public.json_request AS j
+WHERE j."Id" = @__id_0
+LIMIT 1

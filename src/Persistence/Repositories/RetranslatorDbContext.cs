@@ -1,5 +1,4 @@
-﻿using Domain.Abstractions;
-using Domain.Entities.JsonRequest;
+﻿using Domain.Entities.JsonRequest;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Microsoft.Extensions.Logging;
@@ -7,25 +6,32 @@ using Microsoft.Extensions.Options;
 
 namespace Persistence.Repositories;
 
-public class RetranslatorDbContext : DbContext, IUnitOfWork
+public class RetranslatorDbContext : DbContext
 {
     private readonly string _connectionString;
     private readonly ILoggerFactory _loggerFactory;
+    private readonly PublishDomainEventsToEventBusInterceptor _interceptor;
 
     public RetranslatorDbContext(
         IOptions<PostgreSettings> settings,
-        ILoggerFactory loggerFactory)
+        ILoggerFactory loggerFactory,
+        PublishDomainEventsToEventBusInterceptor interceptor)
     {
         _connectionString = settings.Value.ConnectionString;
         _loggerFactory = loggerFactory;
+        _interceptor = interceptor;
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder
-            .UseNpgsql(_connectionString);
-        //.UseLoggerFactory(_loggerFactory)
-        //.EnableSensitiveDataLogging();
+            .UseNpgsql(_connectionString)
+            .AddInterceptors(_interceptor)
+            .UseLoggerFactory(_loggerFactory)
+            .EnableSensitiveDataLogging();
+
+        // TODO: use utc - need avoid
+        AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

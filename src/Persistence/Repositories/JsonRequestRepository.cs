@@ -1,8 +1,10 @@
 ﻿using Domain.Abstractions;
 using Domain.Entities.JsonRequest;
+using Microsoft.EntityFrameworkCore;
 
 namespace Persistence.Repositories;
 
+// TODO: split repository into separated queries?
 public class JsonRequestRepository : IJsonRequestRepository
 {
     private readonly RetranslatorDbContext _dbContext;
@@ -12,9 +14,13 @@ public class JsonRequestRepository : IJsonRequestRepository
         _dbContext = dbContext;
     }
 
-    public Task<JsonRequest?> GetById(JsonRequestId id, CancellationToken ct = default)
+    public async Task<JsonRequest?> GetById(JsonRequestId id, CancellationToken ct = default)
     {
-        throw new NotImplementedException();
+        var finded = await _dbContext.Set<JsonRequest>()
+            //.AsNoTracking()
+            .FirstOrDefaultAsync(x => x.Id == id, ct);
+    
+        return finded;
     }
 
     public void Insert(JsonRequest jsonRequest)

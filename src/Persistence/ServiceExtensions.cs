@@ -18,15 +18,18 @@ public static class ServiceExtensions
         this IServiceCollection services,
         IConfiguration config)
     {
-        services.AddTransient<IEventBus, EventBus>();
+        services.AddScoped<IEventBus, EventBus>();
         services.AddTransient<IWebhookSender, WebhookSender>();
 
         AddHttpAndPolly(services, config);
 
         // It is scoped service
         services.AddDbContext<RetranslatorDbContext>();
-        services.AddScoped<IUnitOfWork, RetranslatorDbContext>();
+
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped<IJsonRequestRepository, JsonRequestRepository>();
+
+        services.AddScoped<PublishDomainEventsToEventBusInterceptor>();
 
         services
             .AddOptions<RabbitSettings>()
@@ -62,8 +65,13 @@ public static class ServiceExtensions
             busConfigurator.AddConsumer<ExternalJsonEventConsumer>();
             busConfigurator.AddConsumer<ReceivedDomainEventConsumer>();
 
-            busConfigurator.UsingInMemory();
-            return;
+            busConfigurator.AddDelayedMessageScheduler();
+
+            busConfigurator.UsingInMemory((context, cfg) =>
+            {
+                cfg.UseDelayedMessageScheduler();
+                cfg.ConfigureEndpoints(context);
+            });
 
             // TODO: use RabbitMq with settings
             /*busConfigurator.UsingRabbitMq((ctx, rabbitConfigurator) =>

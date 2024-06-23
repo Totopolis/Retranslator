@@ -1,5 +1,6 @@
 using Persistence;
 using Serilog;
+using Server;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +18,8 @@ builder.Services
             // TODO: setup logs path into /var/logs/ on *nix
             .WriteTo.File("retranslator-log.txt");
     });
+
+builder.Services.AddHostedService<EmulatorHostedService>();
 
 var app = builder.Build();
 

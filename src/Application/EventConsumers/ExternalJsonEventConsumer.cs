@@ -7,7 +7,7 @@ namespace Application.EventConsumers;
 
 // Receive raw json from external source
 // TODO: remove masstransit dependency in application layer
-public class ExternalJsonEventConsumer : IConsumer<Batch<string>>
+public class ExternalJsonEventConsumer : IConsumer<Batch<ExternalRequestContract>>
 {
     private readonly IJsonRequestRepository _repo;
     private readonly IUnitOfWork _unitOfWork;
@@ -25,7 +25,7 @@ public class ExternalJsonEventConsumer : IConsumer<Batch<string>>
     }
 
     // TODO: use cancel-token
-    public async Task Consume(ConsumeContext<Batch<string>> context)
+    public async Task Consume(ConsumeContext<Batch<ExternalRequestContract>> context)
     {
         _logger.LogInformation($"Received batch of json requests (size={context.Message.Length})");
 
@@ -38,7 +38,7 @@ public class ExternalJsonEventConsumer : IConsumer<Batch<string>>
 
         foreach (var item in batch)
         {
-            var jsonRequest = JsonRequest.CreateNew(item.Message);
+            var jsonRequest = JsonRequest.CreateNew(item.Message.JsonContent);
             if (jsonRequest.IsFailure)
             {
                 _logger.LogCritical($"External source provide incorrect raw string (msgId={item.MessageId})");
