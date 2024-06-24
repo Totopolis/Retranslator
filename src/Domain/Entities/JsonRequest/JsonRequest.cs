@@ -44,9 +44,7 @@ public sealed class JsonRequest : AggregateRoot<JsonRequestId>
     {
         if (string.IsNullOrWhiteSpace(jsonContent))
         {
-            return Result.Failure<JsonRequest>(new Error(
-                code: "JsonRequest.CreateNew",
-                message: "Json content is null or whitestaces"));
+            return Result.Failure<JsonRequest>(JsonRequestErrors.JsonRequest_CreateNew);
         }
 
         var id = new JsonRequestId(Guid.NewGuid());

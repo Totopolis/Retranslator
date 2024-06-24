@@ -39,9 +39,7 @@ public sealed class AttributesValue : ValueObject
 
         if (attributeProperty.ValueKind != JsonValueKind.Array)
         {
-            return Result.Failure<AttributesValue>(new Error(
-                code: "AttributesValue.Create",
-                message: "Attribute property must be an array kind"));
+            return Result.Failure<AttributesValue>(PaymentErrors.AttributesValue_Create);
         }
 
         Dictionary<string, string> map = new();
@@ -51,40 +49,35 @@ public sealed class AttributesValue : ValueObject
             // 1. Process code
             if (!item.TryGetProperty("code", out var codeProperty))
             {
-                return Result.Failure<AttributesValue>(new Error(
-                    code: "AttributesValue.Create.IterateArray.TryGetCodeProperty",
-                    message: "Array item must constains code property"));
+                return Result.Failure<AttributesValue>(
+                    PaymentErrors.AttributesValue_Create_IterateArray_TryGetCodeProperty);
             }
 
             var codeValue = codeProperty.GetString();
             if (string.IsNullOrWhiteSpace(codeValue))
             {
-                return Result.Failure<AttributesValue>(new Error(
-                    code: "AttributesValue.Create.IterateArray.CheckCodeValue",
-                    message: "Code value can not be null or whitespace"));
+                return Result.Failure<AttributesValue>(
+                    PaymentErrors.AttributesValue_Create_IterateArray_CheckCodeValue);
             }
 
             if (map.ContainsKey(codeValue))
             {
-                return Result.Failure<AttributesValue>(new Error(
-                    code: "AttributesValue.Create.IterateArray.CheckMapContainsCode",
-                    message: "The code must not be repeated in the array"));
+                return Result.Failure<AttributesValue>(
+                    PaymentErrors.AttributesValue_Create_IterateArray_CheckMapContainsCode);
             }
 
             // 2. Process attribute
             if (!item.TryGetProperty("attribute", out var attributeValueProperty))
             {
-                return Result.Failure<AttributesValue>(new Error(
-                    code: "AttributesValue.Create.IterateArray.TryGetAttributeValueProperty",
-                    message: "Array item must constains attribute value property"));
+                return Result.Failure<AttributesValue>(
+                    PaymentErrors.AttributesValue_Create_IterateArray_TryGetAttributeValueProperty);
             }
 
             var attributeValue = attributeValueProperty.GetString();
             if (string.IsNullOrWhiteSpace(attributeValue))
             {
-                return Result.Failure<AttributesValue>(new Error(
-                    code: "AttributesValue.Create.IterateArray.CheckAttributeValue",
-                    message: "Attribute value can not be null or whitespace"));
+                return Result.Failure<AttributesValue>(
+                    PaymentErrors.AttributesValue_Create_IterateArray_CheckAttributeValue);
             }
 
             // 3. Add to map

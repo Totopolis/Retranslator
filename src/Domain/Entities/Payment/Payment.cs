@@ -84,116 +84,89 @@ public sealed class Payment : Entity<PaymentId>
         // 1. Check json validity
         if (!IsJsonValid(request.Content, out var doc))
         {
-            return Result.Failure<Payment>(new Error(
-                code: "Payment.Create.IsJsonValid",
-                message: "Json request content is not valide json object"));
+            return Result.Failure<Payment>(PaymentErrors.Payment_Create_IsJsonValid);
         }
 
         // 2. Extract requestId
         if (!doc.RootElement.TryGetProperty("request", out var requestElement))
         {
-            return Result.Failure<Payment>(new Error(
-                code: "Payment.Create.TryGetRequestProperty",
-                message: "Request property not found"));
+            return Result.Failure<Payment>(PaymentErrors.Payment_Create_TryGetRequestProperty);
         }
 
         if (!requestElement.TryGetProperty("id", out var requestIdElement))
         {
-            return Result.Failure<Payment>(new Error(
-                code: "Payment.Create.TryGetRequestIdProperty",
-                message: "Request id property not found"));
+            return Result.Failure<Payment>(PaymentErrors.Payment_Create_TryGetRequestIdProperty);
         }
 
         if (!requestIdElement.TryGetUInt64(out var requestIdValue))
         {
-            return Result.Failure<Payment>(new Error(
-                code: "Payment.Create.TryGetRequestIdValue",
-                message: "Bad request id value"));
+            return Result.Failure<Payment>(PaymentErrors.Payment_Create_TryGetRequestIdValue);
         }
 
         // 3. Extract details
         if (!doc.RootElement.TryGetProperty("details", out var detailsElement))
         {
-            return Result.Failure<Payment>(new Error(
-                code: "Payment.Create.TryGetDetailsProperty",
-                message: "Request details property not found"));
+            return Result.Failure<Payment>(PaymentErrors.Payment_Create_TryGetDetailsProperty);
         }
 
         var detailsValue = detailsElement.GetString();
         // TODO: need check buisness condition
         if (string.IsNullOrWhiteSpace(detailsValue))
         {
-            return Result.Failure<Payment>(new Error(
-                code: "Payment.Create.TryGetDetailsValue",
-                message: "Bad request details value"));
+            return Result.Failure<Payment>(PaymentErrors.Payment_Create_TryGetDetailsValue);
         }
 
         // 4. Extract debit part
         if (!doc.RootElement.TryGetProperty("debitPart", out var debitPartElement))
         {
-            return Result.Failure<Payment>(new Error(
-                code: "Payment.Create.TryGetDebitPartProperty",
-                message: "Request debit part property not found"));
+            return Result.Failure<Payment>(PaymentErrors.Payment_Create_TryGetDebitPartProperty);
         }
 
         var debitPart = PartValue.Create(debitPartElement);
 
         if (debitPart.IsFailure)
         {
-            return Result.Failure<Payment>(new Error(
-                code: "Payment.Create." + debitPart.Error.Code,
-                message: debitPart.Error.Message));
+            return Result.Failure<Payment>(debitPart.Error);
         }
 
         // 5. Extract credit part
         if (!doc.RootElement.TryGetProperty("creditPart", out var creditPartElement))
         {
-            return Result.Failure<Payment>(new Error(
-                code: "Payment.Create.TryGetCreditPartProperty",
-                message: "Request credit part property not found"));
+            return Result.Failure<Payment>(PaymentErrors.Payment_Create_TryGetCreditPartProperty);
         }
 
         var creditPart = PartValue.Create(creditPartElement);
 
         if (creditPart.IsFailure)
         {
-            return Result.Failure<Payment>(new Error(
-                code: "Payment.Create." + creditPart.Error.Code,
-                message: creditPart.Error.Message));
+            return Result.Failure<Payment>(creditPart.Error);
         }
 
         // 6. Extract attributes
         if (!doc.RootElement.TryGetProperty("attributes", out var attributesElement))
         {
-            return Result.Failure<Payment>(new Error(
-                code: "Payment.Create.TryGetAttributesProperty",
-                message: "Request attributes property not found"));
+            return Result.Failure<Payment>(PaymentErrors.Payment_Create_TryGetAttributesProperty);
         }
 
         var attributes = AttributesValue.Create(attributesElement);
         if (attributes.IsFailure)
         {
-            return Result.Failure<Payment>(new Error(
-                code: "Payment.Create." + attributes.Error.Code,
-                message: attributes.Error.Message));
+            return Result.Failure<Payment>(attributes.Error);
         }
 
         // 7. Check debit credit consistency
         if (debitPart.Value.Amount != creditPart.Value.Amount)
         {
-            return Result.Failure<Payment>(new Error(
-                code: "Payment.Create.AmountCheck",
-                message: "Debit amount must be equals credit amount"));
+            return Result.Failure<Payment>(PaymentErrors.Payment_Create_AmountCheck);
         }
 
         if (debitPart.Value.Currency != creditPart.Value.Currency)
         {
-            return Result.Failure<Payment>(new Error(
-                code: "Payment.Create.CurrencyCheck",
-                message: "Debit currency must be same as credit currency"));
+            return Result.Failure<Payment>(PaymentErrors.Payment_Create_CurrencyCheck);
         }
 
         return new Payment(
+            // TODO: use the same id as jsonRequest.Id
             new PaymentId(Guid.NewGuid()),
             requestIdValue,
             debitPart.Value,
