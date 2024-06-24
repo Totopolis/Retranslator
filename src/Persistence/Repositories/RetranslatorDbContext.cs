@@ -1,8 +1,8 @@
 ﻿using Domain.Entities.JsonRequest;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using SmartEnum.EFCore;
 
 namespace Persistence.Repositories;
 
@@ -34,6 +34,13 @@ public class RetranslatorDbContext : DbContext
         AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
     }
 
+    protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
+    {
+        configurationBuilder.ConfigureSmartEnum();
+
+        base.ConfigureConventions(configurationBuilder);
+    }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.HasDefaultSchema("public");
@@ -59,14 +66,10 @@ public class RetranslatorDbContext : DbContext
             .HasColumnType("timestamp")
             .IsRequired();
 
-        var stateConverter = new ValueConverter<JsonRequestState, int>(
-            v => (int)v,
-            v => (JsonRequestState)v);
-
         entity
-            .Property(x=>x.State)
+            .Property(x => x.State)
             .HasColumnName("state")
-            .HasConversion(stateConverter)
+            .HasConversion(state => state.Value, val => JsonRequestState.FromValue(val))
             .IsRequired();
     }
 }

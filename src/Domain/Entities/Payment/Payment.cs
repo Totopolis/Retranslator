@@ -1,11 +1,7 @@
 ﻿using Domain.Primitives;
 using Domain.Shared;
-using System.Runtime.CompilerServices;
-using System.Text;
 using System.Text.Json;
 using System.Xml;
-using System.Xml.Serialization;
-using System.Xml.XPath;
 
 namespace Domain.Entities.Payment;
 
@@ -154,6 +150,21 @@ public sealed class Payment : Entity<PaymentId>
             return Result.Failure<Payment>(new Error(
                 code: "Payment.Create." + creditPart.Error.Code,
                 message: creditPart.Error.Message));
+        }
+
+        // 6. Check debit credit consistency
+        if (debitPart.Value.Amount != creditPart.Value.Amount)
+        {
+            return Result.Failure<Payment>(new Error(
+                code: "Payment.Create.AmountCheck",
+                message: "Debit amount must be equals credit amount"));
+        }
+
+        if (debitPart.Value.Currency != creditPart.Value.Currency)
+        {
+            return Result.Failure<Payment>(new Error(
+                code: "Payment.Create.CurrencyCheck",
+                message: "Debit currency must be same as credit currency"));
         }
 
         return new Payment(
