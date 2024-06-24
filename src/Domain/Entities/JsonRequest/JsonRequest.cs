@@ -1,4 +1,5 @@
 ﻿using Domain.DomainEvents;
+using Domain.Errors;
 using Domain.Primitives;
 using Domain.Shared;
 
@@ -44,7 +45,7 @@ public sealed class JsonRequest : AggregateRoot<JsonRequestId>
     {
         if (string.IsNullOrWhiteSpace(jsonContent))
         {
-            return Result.Failure<JsonRequest>(JsonRequestErrors.JsonRequest_CreateNew);
+            return Result.Failure<JsonRequest>(DomainErrors.JsonRequest.CreateNew);
         }
 
         var id = new JsonRequestId(Guid.NewGuid());

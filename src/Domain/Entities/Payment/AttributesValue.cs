@@ -1,4 +1,5 @@
-﻿using Domain.Primitives;
+﻿using Domain.Errors;
+using Domain.Primitives;
 using Domain.Shared;
 using System.Text.Json;
 
@@ -39,7 +40,8 @@ public sealed class AttributesValue : ValueObject
 
         if (attributeProperty.ValueKind != JsonValueKind.Array)
         {
-            return Result.Failure<AttributesValue>(PaymentErrors.AttributesValue_Create);
+            return Result.Failure<AttributesValue>(
+                DomainErrors.AttributesValue.Create);
         }
 
         Dictionary<string, string> map = new();
@@ -50,34 +52,34 @@ public sealed class AttributesValue : ValueObject
             if (!item.TryGetProperty("code", out var codeProperty))
             {
                 return Result.Failure<AttributesValue>(
-                    PaymentErrors.AttributesValue_Create_IterateArray_TryGetCodeProperty);
+                    DomainErrors.AttributesValue.Create_IterateArray_TryGetCodeProperty);
             }
 
             var codeValue = codeProperty.GetString();
             if (string.IsNullOrWhiteSpace(codeValue))
             {
                 return Result.Failure<AttributesValue>(
-                    PaymentErrors.AttributesValue_Create_IterateArray_CheckCodeValue);
+                    DomainErrors.AttributesValue.Create_IterateArray_CheckCodeValue);
             }
 
             if (map.ContainsKey(codeValue))
             {
                 return Result.Failure<AttributesValue>(
-                    PaymentErrors.AttributesValue_Create_IterateArray_CheckMapContainsCode);
+                    DomainErrors.AttributesValue.Create_IterateArray_CheckMapContainsCode);
             }
 
             // 2. Process attribute
             if (!item.TryGetProperty("attribute", out var attributeValueProperty))
             {
                 return Result.Failure<AttributesValue>(
-                    PaymentErrors.AttributesValue_Create_IterateArray_TryGetAttributeValueProperty);
+                    DomainErrors.AttributesValue.Create_IterateArray_TryGetAttributeValueProperty);
             }
 
             var attributeValue = attributeValueProperty.GetString();
             if (string.IsNullOrWhiteSpace(attributeValue))
             {
                 return Result.Failure<AttributesValue>(
-                    PaymentErrors.AttributesValue_Create_IterateArray_CheckAttributeValue);
+                    DomainErrors.AttributesValue.Create_IterateArray_CheckAttributeValue);
             }
 
             // 3. Add to map

@@ -1,4 +1,5 @@
-﻿using Domain.Primitives;
+﻿using Domain.Errors;
+using Domain.Primitives;
 using Domain.Shared;
 using System.Text.Json;
 using System.Xml;
@@ -84,42 +85,49 @@ public sealed class Payment : Entity<PaymentId>
         // 1. Check json validity
         if (!IsJsonValid(request.Content, out var doc))
         {
-            return Result.Failure<Payment>(PaymentErrors.Payment_Create_IsJsonValid);
+            return Result.Failure<Payment>(
+                DomainErrors.Payment.Create_IsJsonValid);
         }
 
         // 2. Extract requestId
         if (!doc.RootElement.TryGetProperty("request", out var requestElement))
         {
-            return Result.Failure<Payment>(PaymentErrors.Payment_Create_TryGetRequestProperty);
+            return Result.Failure<Payment>(
+                DomainErrors.Payment.Create_TryGetRequestProperty);
         }
 
         if (!requestElement.TryGetProperty("id", out var requestIdElement))
         {
-            return Result.Failure<Payment>(PaymentErrors.Payment_Create_TryGetRequestIdProperty);
+            return Result.Failure<Payment>(
+                DomainErrors.Payment.Create_TryGetRequestIdProperty);
         }
 
         if (!requestIdElement.TryGetUInt64(out var requestIdValue))
         {
-            return Result.Failure<Payment>(PaymentErrors.Payment_Create_TryGetRequestIdValue);
+            return Result.Failure<Payment>(
+                DomainErrors.Payment.Create_TryGetRequestIdValue);
         }
 
         // 3. Extract details
         if (!doc.RootElement.TryGetProperty("details", out var detailsElement))
         {
-            return Result.Failure<Payment>(PaymentErrors.Payment_Create_TryGetDetailsProperty);
+            return Result.Failure<Payment>(
+                DomainErrors.Payment.Create_TryGetDetailsProperty);
         }
 
         var detailsValue = detailsElement.GetString();
         // TODO: need check buisness condition
         if (string.IsNullOrWhiteSpace(detailsValue))
         {
-            return Result.Failure<Payment>(PaymentErrors.Payment_Create_TryGetDetailsValue);
+            return Result.Failure<Payment>(
+                DomainErrors.Payment.Create_TryGetDetailsValue);
         }
 
         // 4. Extract debit part
         if (!doc.RootElement.TryGetProperty("debitPart", out var debitPartElement))
         {
-            return Result.Failure<Payment>(PaymentErrors.Payment_Create_TryGetDebitPartProperty);
+            return Result.Failure<Payment>(
+                DomainErrors.Payment.Create_TryGetDebitPartProperty);
         }
 
         var debitPart = PartValue.Create(debitPartElement);
@@ -132,7 +140,8 @@ public sealed class Payment : Entity<PaymentId>
         // 5. Extract credit part
         if (!doc.RootElement.TryGetProperty("creditPart", out var creditPartElement))
         {
-            return Result.Failure<Payment>(PaymentErrors.Payment_Create_TryGetCreditPartProperty);
+            return Result.Failure<Payment>(
+                DomainErrors.Payment.Create_TryGetCreditPartProperty);
         }
 
         var creditPart = PartValue.Create(creditPartElement);
@@ -145,7 +154,8 @@ public sealed class Payment : Entity<PaymentId>
         // 6. Extract attributes
         if (!doc.RootElement.TryGetProperty("attributes", out var attributesElement))
         {
-            return Result.Failure<Payment>(PaymentErrors.Payment_Create_TryGetAttributesProperty);
+            return Result.Failure<Payment>(
+                DomainErrors.Payment.Create_TryGetAttributesProperty);
         }
 
         var attributes = AttributesValue.Create(attributesElement);
@@ -157,12 +167,14 @@ public sealed class Payment : Entity<PaymentId>
         // 7. Check debit credit consistency
         if (debitPart.Value.Amount != creditPart.Value.Amount)
         {
-            return Result.Failure<Payment>(PaymentErrors.Payment_Create_AmountCheck);
+            return Result.Failure<Payment>(
+                DomainErrors.Payment.Create_AmountCheck);
         }
 
         if (debitPart.Value.Currency != creditPart.Value.Currency)
         {
-            return Result.Failure<Payment>(PaymentErrors.Payment_Create_CurrencyCheck);
+            return Result.Failure<Payment>(
+                DomainErrors.Payment.Create_CurrencyCheck);
         }
 
         return new Payment(
