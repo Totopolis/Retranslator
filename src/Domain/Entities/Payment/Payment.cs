@@ -12,12 +12,14 @@ public sealed class Payment : Entity<PaymentId>
         ulong requestId,
         PartValue debit,
         PartValue credit,
-        string details) : base(id)
+        string details,
+        AttributesValue attributes) : base(id)
     {
         RequestId = requestId;
         Details = details;
         Debit = debit;
         Credit = credit;
+        Attributes = attributes;
     }
 
     public ulong RequestId { get; private set; }
@@ -27,6 +29,8 @@ public sealed class Payment : Entity<PaymentId>
     public PartValue Credit { get; private set; }
 
     public string Details { get; private set; }
+
+    public AttributesValue Attributes { get; private set; }
 
     public Result<XmlDocument> ConvertToXmlDocument()
     {
@@ -50,6 +54,12 @@ public sealed class Payment : Entity<PaymentId>
             writer.WriteElementString("amount", Debit.Amount.ToString());
             writer.WriteElementString("currency", Debit.Currency);
             writer.WriteElementString("details", Details);
+
+            if (Attributes.TryGetPackValue(out var packValue))
+            {
+                writer.WriteElementString("pack", packValue);
+            }
+
             writer.WriteEndElement();
             writer.Flush();
 
@@ -152,7 +162,23 @@ public sealed class Payment : Entity<PaymentId>
                 message: creditPart.Error.Message));
         }
 
-        // 6. Check debit credit consistency
+        // 6. Extract attributes
+        if (!doc.RootElement.TryGetProperty("attributes", out var attributesElement))
+        {
+            return Result.Failure<Payment>(new Error(
+                code: "Payment.Create.TryGetAttributesProperty",
+                message: "Request attributes property not found"));
+        }
+
+        var attributes = AttributesValue.Create(attributesElement);
+        if (attributes.IsFailure)
+        {
+            return Result.Failure<Payment>(new Error(
+                code: "Payment.Create." + attributes.Error.Code,
+                message: attributes.Error.Message));
+        }
+
+        // 7. Check debit credit consistency
         if (debitPart.Value.Amount != creditPart.Value.Amount)
         {
             return Result.Failure<Payment>(new Error(
@@ -172,7 +198,8 @@ public sealed class Payment : Entity<PaymentId>
             requestIdValue,
             debitPart.Value,
             creditPart.Value,
-            detailsValue);
+            detailsValue,
+            attributes.Value);
     }
 
     private static bool IsJsonValid(string jsonContent, out JsonDocument doc)
