@@ -1,7 +1,11 @@
 ﻿using Domain.Primitives;
 using Domain.Shared;
+using System.Runtime.CompilerServices;
+using System.Text;
 using System.Text.Json;
 using System.Xml;
+using System.Xml.Serialization;
+using System.Xml.XPath;
 
 namespace Domain.Entities.Payment;
 
@@ -30,8 +34,43 @@ public sealed class Payment : Entity<PaymentId>
 
     public Result<XmlDocument> ConvertToXmlDocument()
     {
-        // Id is idempotency key for external server
-        return new XmlDocument();
+        XmlWriterSettings settings = new XmlWriterSettings()
+        {
+            Indent = true,
+            IndentChars = "\t",
+            OmitXmlDeclaration = true
+        };
+
+        try
+        {
+            using var ms = new MemoryStream();
+            using var writer = XmlWriter.Create(ms, settings);
+
+            writer.WriteStartDocument();
+            writer.WriteStartElement("invoice_payment");
+            writer.WriteElementString("id", RequestId.ToString());
+            writer.WriteElementString("debit", Debit.AccountNumber);
+            writer.WriteElementString("credit", Credit.AccountNumber);
+            writer.WriteElementString("amount", Debit.Amount.ToString());
+            writer.WriteElementString("currency", Debit.Currency);
+            writer.WriteElementString("details", Details);
+            writer.WriteEndElement();
+            writer.Flush();
+
+            var doc = new XmlDocument();
+            ms.Position = 0;
+            doc.Load(ms);
+            // doc.Save(Console.Out);
+
+            // RequestId is idempotency key for external server
+            return doc;
+        }
+        catch (Exception ex)
+        {
+            return Result.Failure<XmlDocument>(new Error(
+                code: "Payment.ConvertToXmlDocument",
+                message: ex.Message));
+        }
     }
 
     public static Result<Payment> Create(JsonRequest.JsonRequest request)
