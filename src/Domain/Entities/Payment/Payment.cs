@@ -126,8 +126,7 @@ public sealed class Payment : Entity<PaymentId>
         // 4. Extract debit part
         if (!doc.RootElement.TryGetProperty("debitPart", out var debitPartElement))
         {
-            return Result.Failure<Payment>(
-                DomainErrors.Payment.Create_TryGetDebitPartProperty);
+            return Result.Failure<Payment>(DomainErrors.Payment.DebitPartPropertyNotFound);
         }
 
         var debitPart = PartValue.Create(debitPartElement);

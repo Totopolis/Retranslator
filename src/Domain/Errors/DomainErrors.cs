@@ -6,7 +6,7 @@ public static class DomainErrors
 {
     public static class JsonRequest
     {
-        public static Error CreateNew = new Error(
+        public static Error IncorrectJsonString = new Error(
             code: "JsonRequest.CreateNew",
             message: "Json content is null or whitestaces");
     }
@@ -37,8 +37,8 @@ public static class DomainErrors
             code: "Payment.Create.TryGetDetailsValue",
             message: "Bad request details value");
 
-        public static Error Create_TryGetDebitPartProperty = new Error(
-            code: "Payment.Create.TryGetDebitPartProperty",
+        public static Error DebitPartPropertyNotFound = new Error(
+            code: "Payment.DebitPartPropertyNotFound",
             message: "Request debit part property not found");
 
         //

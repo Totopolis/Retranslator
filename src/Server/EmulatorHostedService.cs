@@ -65,7 +65,7 @@ public class EmulatorHostedService : BackgroundService
 		""currency"": ""810"",
 		""attributes"": {}
 	},
-	""details"": ""РАСЧЕТ"",
+	""details"": ""RASCHET"",
 	""bankingDate"": ""2023-07-26"",
 	""attributes"": {
 		""attribute"": [
