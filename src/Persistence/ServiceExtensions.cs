@@ -1,5 +1,4 @@
 ﻿using Application.Abstractions;
-using Application.EventConsumers;
 using Domain.Abstractions;
 using MassTransit;
 using Microsoft.Extensions.Configuration;
@@ -32,12 +31,6 @@ public static class ServiceExtensions
         services.AddScoped<PublishDomainEventsToEventBusInterceptor>();
 
         services
-            .AddOptions<RabbitSettings>()
-            .BindConfiguration(RabbitSettings.SectionName)
-            .ValidateDataAnnotations()
-            .ValidateOnStart();
-
-        services
             .AddOptions<WebhookSettings>()
             .BindConfiguration(WebhookSettings.SectionName)
             .Validate(section =>
@@ -58,12 +51,25 @@ public static class ServiceExtensions
             .ValidateDataAnnotations()
             .ValidateOnStart();
 
+        return services;
+    }
+
+    public static IServiceCollection AddMasstransitServices(
+        this IServiceCollection services,
+        IConfiguration config)
+    {
+        services
+            .AddOptions<RabbitSettings>()
+            .BindConfiguration(RabbitSettings.SectionName)
+            .ValidateDataAnnotations()
+            .ValidateOnStart();
+
         services.AddMassTransit(busConfigurator =>
         {
             busConfigurator.SetKebabCaseEndpointNameFormatter();
 
-            busConfigurator.AddConsumer<ExternalJsonEventConsumer>();
-            busConfigurator.AddConsumer<ReceivedDomainEventConsumer>();
+            // Auto registrations
+            busConfigurator.AddConsumers(typeof(IEventBus).Assembly);
 
             busConfigurator.AddDelayedMessageScheduler();
 

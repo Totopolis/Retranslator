@@ -7,7 +7,7 @@ namespace Application.EventConsumers;
 
 // Receive raw json from external source
 // TODO: remove masstransit dependency in application layer
-public class ExternalJsonEventConsumer : IConsumer<Batch<ExternalRequestContract>>
+internal class ExternalJsonEventConsumer : IConsumer<Batch<ExternalRequestContract>>
 {
     private readonly IJsonRequestRepository _repo;
     private readonly IUnitOfWork _unitOfWork;

@@ -10,7 +10,7 @@ using System.Xml;
 
 namespace Application.EventConsumers;
 
-public class ReceivedDomainEventConsumer : IConsumer<JsonRequestReceivedDomainEvent>
+internal class ReceivedDomainEventConsumer : IConsumer<JsonRequestReceivedDomainEvent>
 {
     private readonly IJsonRequestRepository _repo;
     private readonly IUnitOfWork _unitOfWork;
@@ -30,6 +30,7 @@ public class ReceivedDomainEventConsumer : IConsumer<JsonRequestReceivedDomainEv
     }
 
     // TODO: use cancel-token & enable open-telemetry traces
+    // TODO: limit receive retries count (at errors)
     public async Task Consume(ConsumeContext<JsonRequestReceivedDomainEvent> context)
     {
         // TODO: enreach with body-property

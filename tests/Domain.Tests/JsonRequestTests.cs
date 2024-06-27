@@ -9,7 +9,7 @@ public class JsonRequestTests
     [Fact]
     public void Create_ReturnObject_WhenCorrectJson()
     {
-        var request = JsonRequest.CreateNew(TestDataSource.CorrectPaymentJson);
+        var request = JsonRequest.CreateNew(DataSample.CorrectPaymentJson);
 
         Assert.True(request.IsSuccess);
     }
@@ -28,7 +28,7 @@ public class JsonRequestTests
     [Fact]
     public void Create_Should_RaiseDomainEvent()
     {
-        var request = JsonRequest.CreateNew(TestDataSource.CorrectPaymentJson);
+        var request = JsonRequest.CreateNew(DataSample.CorrectPaymentJson);
 
         Assert.NotEmpty(
             request.Value.GetDomainEvents().OfType<JsonRequestReceivedDomainEvent>());
@@ -37,7 +37,7 @@ public class JsonRequestTests
     [Fact]
     public void Deliver_Should_RaiseDomainEvent()
     {
-        var request = JsonRequest.CreateNew(TestDataSource.CorrectPaymentJson);
+        var request = JsonRequest.CreateNew(DataSample.CorrectPaymentJson);
 
         request.Value.Delivered();
 
@@ -48,7 +48,7 @@ public class JsonRequestTests
     [Fact]
     public void Fail_Should_RaiseDomainEvent()
     {
-        var request = JsonRequest.CreateNew(TestDataSource.CorrectPaymentJson);
+        var request = JsonRequest.CreateNew(DataSample.CorrectPaymentJson);
 
         request.Value.Failed("Some error");
 

@@ -1,6 +1,6 @@
-﻿namespace Domain.Tests;
+﻿namespace Domain;
 
-internal class TestDataSource
+public class DataSample
 {
     public const string CorrectPaymentJson = @"{
 	""request"": {

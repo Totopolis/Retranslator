@@ -7,7 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddPersistenceServices(builder.Configuration);
+builder.Services
+    .AddPersistenceServices(builder.Configuration)
+    .AddMasstransitServices(builder.Configuration);
 
 builder.Services
     .AddSerilog((IServiceProvider services, LoggerConfiguration loggerConfiguration) =>
