@@ -53,7 +53,7 @@ public class ReceivedConsumerTests : IAsyncLifetime
     }
 
     [Fact]
-    public async void ReceivedRequest_Should_PostXml_WhenCorrectRequest()
+    public async Task ReceivedRequest_Should_PostXml_WhenCorrectRequest()
     {
         var jsonRequest = JsonRequest.CreateNew(DataSample.CorrectPaymentJson).Value;
         _repository.GetById(jsonRequest.Id).Returns(jsonRequest);

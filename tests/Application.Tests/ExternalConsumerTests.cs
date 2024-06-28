@@ -47,7 +47,7 @@ public class ExternalConsumerTests : IAsyncLifetime
     }
 
     [Fact]
-    public async void ExternalConsumer_Should_CallInsertRepository_WhenCorrectRequest()
+    public async Task ExternalConsumer_Should_CallInsertRepository_WhenCorrectRequest()
     {
         var client = _harness.GetRequestClient<ExternalRequestContract>();
         await _harness.Bus.Publish(new ExternalRequestContract()

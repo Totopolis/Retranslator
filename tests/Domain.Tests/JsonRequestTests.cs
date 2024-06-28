@@ -17,9 +17,9 @@ public class JsonRequestTests
     [Theory]
     [InlineData(null)]
     [InlineData("")]
-    public void Create_ReturnFail_WhenIncorrectJson(string jsonContent)
+    public void Create_ReturnFail_WhenIncorrectJson(string? jsonContent)
     {
-        var request = JsonRequest.CreateNew(jsonContent);
+        var request = JsonRequest.CreateNew(jsonContent!);
 
         Assert.True(request.IsFailure);
         Assert.Equal(request.Error, DomainErrors.JsonRequest.IncorrectJsonString);
