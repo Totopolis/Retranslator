@@ -43,7 +43,7 @@ public class MainIntegrationTest : IAsyncLifetime
         var app = builder.Build();
 
         var cts = new CancellationTokenSource(10_000);
-        var awaiter = app.RunAsync(cts.Token);
+        var awaiter = app.RunAsync();
 
         var eventBus = app.Services.GetRequiredService<IEventBus>();
         await eventBus.PublishAsync(
