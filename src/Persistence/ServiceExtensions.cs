@@ -28,8 +28,6 @@ public static class ServiceExtensions
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped<IJsonRequestRepository, JsonRequestRepository>();
 
-        services.AddScoped<PublishDomainEventsToEventBusInterceptor>();
-
         services
             .AddOptions<WebhookSettings>()
             .BindConfiguration(WebhookSettings.SectionName)

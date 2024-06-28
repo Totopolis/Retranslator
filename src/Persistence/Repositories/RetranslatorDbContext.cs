@@ -10,23 +10,19 @@ public class RetranslatorDbContext : DbContext
 {
     private readonly string _connectionString;
     private readonly ILoggerFactory _loggerFactory;
-    private readonly PublishDomainEventsToEventBusInterceptor _interceptor;
 
     public RetranslatorDbContext(
         IOptions<PostgreSettings> settings,
-        ILoggerFactory loggerFactory,
-        PublishDomainEventsToEventBusInterceptor interceptor)
+        ILoggerFactory loggerFactory)
     {
         _connectionString = settings.Value.ConnectionString;
         _loggerFactory = loggerFactory;
-        _interceptor = interceptor;
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder
             .UseNpgsql(_connectionString)
-            .AddInterceptors(_interceptor)
             .UseLoggerFactory(_loggerFactory)
             .EnableSensitiveDataLogging();
 
