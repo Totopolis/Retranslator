@@ -8,17 +8,18 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services
+    .AddPersistenceOptions()
     .AddPersistenceServices(builder.Configuration)
-    .AddMasstransitServices(builder.Configuration);
+    .AddMasstransitLocal(builder.Configuration);
 
 builder.Services
     .AddSerilog((IServiceProvider services, LoggerConfiguration loggerConfiguration) =>
     {
         loggerConfiguration
             .Enrich.FromLogContext()
-            .WriteTo.Console()
+            .WriteTo.Console();
             // TODO: setup logs path into /var/logs/ on *nix
-            .WriteTo.File("retranslator-log.txt");
+            //.WriteTo.File("retranslator-log.txt");
     });
 
 builder.Services.AddHostedService<EmulatorHostedService>();

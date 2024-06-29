@@ -1,5 +1,6 @@
 ﻿using Application;
 using Application.Abstractions;
+using Domain;
 
 namespace Server;
 
@@ -31,7 +32,7 @@ public class EmulatorHostedService : BackgroundService
 
             var eventBus = scope.ServiceProvider.GetRequiredService<IEventBus>();
             await eventBus.PublishAsync(
-                new ExternalRequestContract() { JsonContent = _jsonBody },
+                new ExternalRequestContract() { JsonContent = DataSample.CorrectPaymentJson },
                 stoppingToken);
 
             _logger.LogInformation("Single json request generated");
@@ -42,39 +43,4 @@ public class EmulatorHostedService : BackgroundService
 			await Task.Delay(1000, stoppingToken);
 		}
 	}
-
-    private const string _jsonBody = @"{
-	""request"": {
-		""id"": 27454821037510912,
-		""document"": {
-			""id"": 27454820926361856,
-			""type"": ""INVOICE_PAYMENT""
-		}
-	},
-	""debitPart"": {
-		""agreementNumber"": ""RUS01"",
-		""accountNumber"": ""30109810000000000001"",
-		""amount"": 3442.79,
-		""currency"": ""810"",
-		""attributes"": {}
-	},
-	""creditPart"": {
-		""agreementNumber"": ""RUS01"",
-		""accountNumber"": ""30233810000000000001"",
-		""amount"": 3442.79,
-		""currency"": ""810"",
-		""attributes"": {}
-	},
-	""details"": ""RASCHET"",
-	""bankingDate"": ""2023-07-26"",
-	""attributes"": {
-		""attribute"": [
-			{
-				""code"": ""pack"",
-				""attribute"": ""37""
-			}
-		]
-	}
-}";
-
 }

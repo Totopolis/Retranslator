@@ -1,8 +1,10 @@
 ﻿using Application.Abstractions;
 using Domain.Abstractions;
 using MassTransit;
+using MassTransit.Metadata;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using Persistence.MessageBroker;
 using Persistence.Repositories;
 using Persistence.Webhook;
@@ -13,21 +15,8 @@ namespace Persistence;
 
 public static class ServiceExtensions
 {
-    public static IServiceCollection AddPersistenceServices(
-        this IServiceCollection services,
-        IConfiguration config)
+    public static IServiceCollection AddPersistenceOptions(this IServiceCollection services)
     {
-        services.AddScoped<IEventBus, EventBus>();
-        services.AddTransient<IWebhookSender, WebhookSender>();
-
-        AddHttpAndPolly(services, config);
-
-        // It is scoped service
-        services.AddDbContext<RetranslatorDbContext>();
-
-        services.AddScoped<IUnitOfWork, UnitOfWork>();
-        services.AddScoped<IJsonRequestRepository, JsonRequestRepository>();
-
         services
             .AddOptions<WebhookSettings>()
             .BindConfiguration(WebhookSettings.SectionName)
@@ -49,36 +38,70 @@ public static class ServiceExtensions
             .ValidateDataAnnotations()
             .ValidateOnStart();
 
-        return services;
-    }
-
-    public static IServiceCollection AddMasstransitServices(
-        this IServiceCollection services,
-        IConfiguration config)
-    {
         services
             .AddOptions<RabbitSettings>()
             .BindConfiguration(RabbitSettings.SectionName)
             .ValidateDataAnnotations()
             .ValidateOnStart();
 
+        return services;
+    }
+
+    public static IServiceCollection AddPersistenceServices(
+        this IServiceCollection services,
+        IConfiguration config)
+    {
+        services.AddScoped<IEventBus, EventBus>();
+        services.AddTransient<IWebhookSender, WebhookSender>();
+
+        AddHttpAndPolly(services, config);
+
+        // It is scoped service
+        services.AddDbContext<RetranslatorDbContext>();
+
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
+        services.AddScoped<IJsonRequestRepository, JsonRequestRepository>();
+
+        return services;
+    }
+
+    public static IServiceCollection AddMasstransitLocal(
+        this IServiceCollection services,
+        IConfiguration config)
+    {
         services.AddMassTransit(busConfigurator =>
         {
             busConfigurator.SetKebabCaseEndpointNameFormatter();
 
-            // Auto registrations
-            busConfigurator.AddConsumers(typeof(IEventBus).Assembly);
+            // DANGER: Auto registrations DONT WORK with INTERNALs consumers!
+            // https://github.com/MassTransit/MassTransit/issues/2253
+            // busConfigurator.AddConsumers(typeof(IEventBus).Assembly);
 
-            busConfigurator.AddDelayedMessageScheduler();
+            // Handmage autoregistration
+            var consumers = GetAllConsumersFromAssemblyContainsType<IEventBus>();
+            busConfigurator.AddConsumers(consumers);
 
             busConfigurator.UsingInMemory((context, cfg) =>
             {
-                cfg.UseDelayedMessageScheduler();
                 cfg.ConfigureEndpoints(context);
             });
+        });
 
-            // TODO: use RabbitMq with settings
-            /*busConfigurator.UsingRabbitMq((ctx, rabbitConfigurator) =>
+        return services;
+    }
+
+    public static IServiceCollection AddMasstransitHost(
+        this IServiceCollection services,
+        IConfiguration config)
+    {
+        services.AddMassTransit(busConfigurator =>
+        {
+            busConfigurator.SetKebabCaseEndpointNameFormatter();
+
+            var consumers = GetAllConsumersFromAssemblyContainsType<IEventBus>();
+            busConfigurator.AddConsumers(consumers);
+
+            busConfigurator.UsingRabbitMq((ctx, rabbitConfigurator) =>
             {
                 var settings = ctx
                     .GetRequiredService<IOptions<RabbitSettings>>()
@@ -91,8 +114,32 @@ public static class ServiceExtensions
                         h.Username(settings.UserName);
                         h.Password(settings.Password);
                     });
-            });*/
+
+                rabbitConfigurator.ConfigureEndpoints(ctx);
+            });
         });
+
+        return services;
+    }
+
+    public static IServiceCollection Replace<TService>(
+        this IServiceCollection services,
+        Func<IServiceProvider, TService> implementationFactory,
+        ServiceLifetime lifetime)
+        where TService : class
+    {
+        var descriptorToRemove = services.FirstOrDefault(d => d.ServiceType == typeof(TService));
+
+        if (descriptorToRemove is null)
+        {
+            ArgumentNullException.ThrowIfNull(descriptorToRemove);
+        }
+
+        services.Remove(descriptorToRemove);
+
+        var descriptorToAdd = new ServiceDescriptor(typeof(TService), implementationFactory, lifetime);
+
+        services.Add(descriptorToAdd);
 
         return services;
     }
@@ -109,5 +156,15 @@ public static class ServiceExtensions
         services
             .AddHttpClient(PersistenceConstants.WebhookHttpCLientName)
             .AddPolicyHandler(policy);
+    }
+
+    private static Type[] GetAllConsumersFromAssemblyContainsType<T>()
+    {
+        var types = typeof(T).Assembly
+            .GetTypes()
+            .Where(RegistrationMetadata.IsConsumerOrDefinition)
+            .ToArray();
+        
+        return types;
     }
 }

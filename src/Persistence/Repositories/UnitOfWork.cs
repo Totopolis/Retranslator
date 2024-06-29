@@ -1,6 +1,7 @@
 ﻿using Application.Abstractions;
 using Domain.Abstractions;
 using Domain.Entities.JsonRequest;
+using Microsoft.Extensions.Logging;
 
 namespace Persistence.Repositories;
 
@@ -8,13 +9,16 @@ public class UnitOfWork : IUnitOfWork
 {
     private readonly IEventBus _eventBus;
     private readonly RetranslatorDbContext _dbContext;
+    private readonly ILogger<UnitOfWork> _logger;
 
     public UnitOfWork(
         IEventBus eventBus,
-        RetranslatorDbContext dbContext)
+        RetranslatorDbContext dbContext,
+        ILogger<UnitOfWork> logger)
     {
         _eventBus = eventBus;
         _dbContext = dbContext;
+        _logger = logger;
     }
 
     public async Task<int> SaveChangesAsync(CancellationToken ct = default)
@@ -49,11 +53,11 @@ public class UnitOfWork : IUnitOfWork
         }
 
         var taskList = events
-            .Select(x => _eventBus.PublishDelayedDomainEventAsync(x, ct))
+            .Select(x => _eventBus.PublishAsync(x, ct))
             .ToArray();
 
         await Task.WhenAll(taskList);
 
-        // _logger.LogInformation("Domain events sended");
+        _logger.LogInformation($"Domain events ({events.Count}) sended");
     }
 }

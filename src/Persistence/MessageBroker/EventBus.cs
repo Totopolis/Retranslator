@@ -6,14 +6,10 @@ namespace Persistence.MessageBroker;
 
 public class EventBus : IEventBus
 {
-    private readonly IMessageScheduler _messageScheduler;
     private readonly IPublishEndpoint _publishEndpoint;
 
-    public EventBus(
-        IMessageScheduler messageScheduler,
-        IPublishEndpoint publishEndpoint)
+    public EventBus(IPublishEndpoint publishEndpoint)
     {
-        _messageScheduler = messageScheduler;
         _publishEndpoint = publishEndpoint;
     }
 
@@ -23,14 +19,12 @@ public class EventBus : IEventBus
         return _publishEndpoint.Publish<T>(message, ct);
     }
 
-    public Task PublishDelayedDomainEventAsync(IDomainEvent domainEvent, CancellationToken ct = default)
+    public Task PublishAsync(IDomainEvent domainEvent, CancellationToken ct = default)
     {
         var domainEventType = domainEvent.GetType();
-        
-        return _messageScheduler.SchedulePublish(
-            // DANGER: DateTime.Now
-            scheduledTime: DateTime.Now + TimeSpan.FromSeconds(1),
-            messageType: domainEventType,
-            message: domainEvent);
+
+        return _publishEndpoint.Publish(
+            message: domainEvent,
+            messageType: domainEventType);
     }
 }

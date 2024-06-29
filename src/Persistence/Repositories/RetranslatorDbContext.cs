@@ -19,6 +19,21 @@ public class RetranslatorDbContext : DbContext
         _loggerFactory = loggerFactory;
     }
 
+    public async Task EnsureDatabaseStructureCreated(CancellationToken ct = default)
+    {
+        var sql = @"
+-- Recreate the schema
+DROP SCHEMA public CASCADE;
+CREATE SCHEMA public;
+
+-- Restore default permissions
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO public;";
+
+        await Database.ExecuteSqlRawAsync(sql, ct);
+        await Database.MigrateAsync(ct);
+    }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder
